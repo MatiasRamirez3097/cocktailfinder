@@ -1,11 +1,17 @@
 import React from 'react';
-import { View, Text, StyleSheet, Button} from 'react-native';
+import { View, Text, Button, TextInput } from 'react-native';
+import styles from './FinderScreenStyle';
 
 const FinderScreen = props => {
     return (
         <View style={styles.view}>
             <Text>ASD</Text>
+            <TextInput 
+                style={styles.textInput} 
+                placeholder="Ej: Vodka"
+            />
             <Button
+                style={styles.button}
                 onPress={() => {
                     props.navigation.navigate({ routeName: 'Home' })
                 }}
@@ -15,19 +21,5 @@ const FinderScreen = props => {
         </View>
     );
 };
-FinderScreen.navigationOptions = {
-    initialRouteName: "Testing",
-    headerStyle: {
-        backgroundColor: "#F00"
-    }
-        
-}
-
-const styles = StyleSheet.create({
-    view:{
-        backgroundColor: '#000',
-        height: '100%'       
-    }
-});
 
 export default FinderScreen;
