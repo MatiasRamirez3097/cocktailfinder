@@ -1,28 +1,35 @@
 import React from 'react';
-import { View, Text, StyleSheet, Button} from 'react-native';
+import { View, Text, StyleSheet, Button, ImageBackground} from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import styles from './HomeScreenStyle';
 
 const HomeScreen = props => {
     return (
-        <View style={styles.view}>
-            <Text>ASD</Text>
-            <TouchableOpacity
-                style={styles.button} 
-                onPress={() => {
-                    props.navigation.navigate({routeName: 'Finder'})
-                }}
-            >  
-                <Text
-                    style={{
-                        fontSize: 20,
-                        textAlign: 'center'
-                    }}
+            <ImageBackground
+                style={styles.imageBackground}
+                source={require('../../assets/images/HomeBackground.png')}>
+                <View 
+                    style={styles.view} 
                 >
-                    Ir al Buscador
-                </Text>
-            </TouchableOpacity>
-        </View>
+                        <Text style={styles.text}>Cocktail Finder</Text>
+                        <TouchableOpacity
+                            style={styles.button} 
+                            onPress={() => {
+                                props.navigation.navigate({routeName: 'Finder'})
+                            }}
+                        >
+                            
+                            <Text
+                                style={{
+                                    fontSize: 20,
+                                    textAlign: 'center'
+                                }}
+                            >
+                                Ir al Buscador
+                            </Text>
+                        </TouchableOpacity>
+                </View>
+            </ImageBackground>
     );
 };
 

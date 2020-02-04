@@ -4,8 +4,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#000',
         height: '100%',
         alignContent: 'center',
-        justifyContent: 'center',
-
+        justifyContent: 'center'
     },
     textInput:{
         width: '80%',
@@ -15,9 +14,11 @@ const styles = StyleSheet.create({
         alignSelf:'center'
     },
     button:{
+        width: '80%',
         alignSelf: 'center',
-        width: '60%',
-        height: '20%'
-    }
+        backgroundColor: '#0FF',
+        borderRadius: 5,
+        padding: 10
+    },
 });
 export default styles;

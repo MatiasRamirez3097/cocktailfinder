@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, Button, TextInput } from 'react-native';
 import styles from './FinderScreenStyle';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const FinderScreen = props => {
     return (
@@ -10,14 +11,14 @@ const FinderScreen = props => {
                 style={styles.textInput} 
                 placeholder="Ej: Vodka"
             />
-            <Button
+            <TouchableOpacity
                 style={styles.button}
                 onPress={() => {
                     props.navigation.navigate({ routeName: 'Home' })
                 }}
-                title="Ir al inicio"
             >
-            </Button>
+                <Text>Ir al inicio</Text>
+            </TouchableOpacity>
         </View>
     );
 };
