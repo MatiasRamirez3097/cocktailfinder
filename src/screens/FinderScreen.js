@@ -15,6 +15,13 @@ const FinderScreen = props => {
         </View>
     );
 };
+FinderScreen.navigationOptions = {
+    initialRouteName: "Testing",
+    headerStyle: {
+        backgroundColor: "#F00"
+    }
+        
+}
 
 const styles = StyleSheet.create({
     view:{

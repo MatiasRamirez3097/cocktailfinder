@@ -4,8 +4,8 @@ import FinderScreen from '../screens/FinderScreen';
 import HomeScreen from '../screens/HomeScreen';
 
 const CocktailFinderNavigator = createStackNavigator({
-    Home: HomeScreen,
-    Finder: FinderScreen
+    Finder: FinderScreen,
+    Home: HomeScreen
 });
 
 export default createAppContainer(CocktailFinderNavigator);
