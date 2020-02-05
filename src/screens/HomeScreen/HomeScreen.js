@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Button, ImageBackground} from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import styles from './HomeScreenStyle';
+import { connect } from 'react-redux';
 
 const HomeScreen = props => {
     return (
@@ -32,6 +33,10 @@ const HomeScreen = props => {
                 </View>
             </ImageBackground>
     );
+};
+const mapStateToProps = (state) => {
+    const { cocktails } = state
+    return { cocktails }
 };
 
 export default HomeScreen;
