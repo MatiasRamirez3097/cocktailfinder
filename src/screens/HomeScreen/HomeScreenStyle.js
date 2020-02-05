@@ -5,8 +5,10 @@ const styles = StyleSheet.create({
     button:{
         width: '80%',
         alignSelf: 'center',
-        backgroundColor: '#0FF',
-        borderRadius: 5,
+        backgroundColor: '#00F',
+        borderRadius: 10,
+        borderColor: "#FFF",
+        borderWidth: 0.5,
         padding: 10,
         opacity: 1
     },

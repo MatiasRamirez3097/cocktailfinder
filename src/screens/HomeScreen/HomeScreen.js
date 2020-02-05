@@ -22,7 +22,8 @@ const HomeScreen = props => {
                             <Text
                                 style={{
                                     fontSize: 20,
-                                    textAlign: 'center'
+                                    textAlign: 'center',
+                                    color: "#FFF"
                                 }}
                             >
                                 Ir al Buscador
