@@ -9,14 +9,13 @@
 import React, { useState } from 'react';
 import { View, Text } from 'react-native';
 import CocktailFinderNavigator from './src/navigation/CocktailFinderNavigator';
-import { createStore, combineReducers } from 'redux';
+import { createStore } from 'redux';
 import cocktailsReducer from './src/store/reducers/cocktails';
 import { Provider } from 'react-redux';
-const rootReducer = combineReducers({
-  cocktails: cocktailsReducer
-});
+import configureStore from './src/store/configStore';
 
-const store = createStore(rootReducer);
+
+let store = configureStore();
 
 export default function App(){
   return <Provider store={store}><CocktailFinderNavigator /></Provider>;
