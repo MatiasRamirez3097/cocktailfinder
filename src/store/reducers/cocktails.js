@@ -24,7 +24,7 @@ const initialState = {
 }
 
 
-const reducer = (state = initialState, action) => {
+const cocktailsReducer = (state = initialState, action) => {
     switch(action.type) {
         case FETCHING_DATA: 
             return {

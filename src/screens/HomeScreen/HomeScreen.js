@@ -34,9 +34,9 @@ const HomeScreen = props => {
             </ImageBackground>
     );
 };
-const mapStateToProps = (state) => {
+/*const mapStateToProps = (state) => {
     const { cocktails } = state
     return { cocktails }
-};
+};*/
 
 export default HomeScreen;

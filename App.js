@@ -10,7 +10,6 @@ import React, { useState } from 'react';
 import { View, Text } from 'react-native';
 import CocktailFinderNavigator from './src/navigation/CocktailFinderNavigator';
 import { createStore } from 'redux';
-import cocktailsReducer from './src/store/reducers/cocktails';
 import { Provider } from 'react-redux';
 import configureStore from './src/store/configStore';
 

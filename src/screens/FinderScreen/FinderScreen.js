@@ -5,9 +5,8 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import InputFilter from '../../components/inputFilter';
 import DefaultText from '../../components/DefaultText/DefaultText';
 import { connect } from 'react-redux';
-import { chargeCocktails } from '../../store/actions/CocktailActions';
 import DefaultTextInput from '../../components/DefaultTextInput/DefaultTextInput';
-
+import {fetchData} from '../../store/actions/CocktailActions'
 const FinderScreen = props => {
     return (
         <View style={styles.view}>
@@ -29,8 +28,13 @@ const FinderScreen = props => {
     );
 };
 
-const mapStateToProps = (state) => {
-    const { cocktails } = state
-    return { cocktails }
+const mapStateToProps = state => {
+    return {cocktails: state.cocktails}
 };
-export default connect(mapStateToProps)(FinderScreen);
+const mapDIspatchToProps = dispatch => {
+    return {
+        fetchData: () => dispatch(fetchData())
+    }
+}
+//export default connect(mapStateToProps)(FinderScreen);
+export default FinderScreen;
