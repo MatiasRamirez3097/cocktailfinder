@@ -1,11 +1,11 @@
 import { FETCHING_DATA, FETCHING_DATA_SUCCESS, FETCHING_DATA_REJECTED } from '../constants'
-import getDrinks from '../../providers/services/ApiCocktails'
-export const chargeCocktails = cocktails => (
+import DrinkService from '../../providers/services/ApiCocktails'
+/*export const chargeCocktails = cocktails => (
     {
       type: 'CHARGE_COCKTAILS',
       payload: cocktails,
     }
-);
+);*/
 
 export const getData = () => {
   return {
@@ -23,13 +23,18 @@ export const getDataFailure = () => {
     type: 'FETCHING_DATA_FAILURE',
   }
 }
-export const fetchData = () => {
-  return (dispatch) => {
-    dispatch(getData())
-    getDrinks()
-      .then(([response, json]) => {
-        dispatch(getDataSuccess(json));
-      })
-      .catch((err) => console.log(err))
+export function fetchData(data, loading, value) {
+  loading = false;
+  return async (dispatch) => {
+    try{
+      if(!loading)
+      {
+        dispatch(getData());
+        let drinks = DrinkService.getDrinks("vod")
+      }
+    }catch(err)
+    {
+      dispatch(getDataFailure(err))
+    }
   }
 }

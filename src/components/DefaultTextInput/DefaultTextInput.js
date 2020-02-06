@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { TextInput, View } from 'react-native';
+import { TextInput, View, Text } from 'react-native';
 import {connect} from 'react-redux';
 import {fetchData} from '../../store/actions/CocktailActions'
+import { URL_API } from "../../config/index";
+
 import PropTypes from 'prop-types'
 class DefaultTextInput extends Component{
     static propTypes = {
@@ -9,19 +11,21 @@ class DefaultTextInput extends Component{
         placeholder: String,
         style: String
     }
-    componentWillMount()
+    UNSAFE_componentWillMount()
     {
         this.props.fetchData()
     }
     getDat()
     {
-        const {testing} =this.props.drinks
-        return <Text>{testing}</Text>
+        const {dataaa} =this.props.fetchData()
+        return <Text>{dataaa}</Text>
     }
     render = () => {
         const {onChangeText, placeholder} = this.props;
         return(
             <View>
+                
+                <Text style={{color: 'white'}}>{URL_API}</Text>
                 <Text style={{color: 'white'}}>{this.getDat()}</Text>
                 <TextInput 
                     style={{color: 'white'}}
@@ -33,12 +37,13 @@ class DefaultTextInput extends Component{
     }
 }
 
-const mapStateToProps = state => {
-    return {cocktails: state.cocktails}
+const mapStateToProps = (state) => {
+    const {cocktails} = state
+    return {cocktails}
 };
-const mapDIspatchToProps = dispatch => {
+const mapDIspatchToProps = (dispatch) => {
     return {
         fetchData: () => dispatch(fetchData())
     }
 }
-export default DefaultTextInput;
+export default connect(mapStateToProps, mapDIspatchToProps)(DefaultTextInput);
