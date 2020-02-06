@@ -1,16 +1,16 @@
-import {env} from 'react-native-dotenv'
+import {API_HOST} from 'react-native-dotenv'
 
 const config = {
   api: {
-    host: env.API_HOST,
+    host: API_HOST,
     timeout: 20000
   }
 };
 
-const API_HOST = config.api.host;
+const API = config.api.host;
 
 export {
-  API_HOST
+  API
 }
 
 export default config

@@ -41,4 +41,4 @@ const mapDIspatchToProps = dispatch => {
         fetchData: () => dispatch(fetchData())
     }
 }
-export default (connect)(DefaultTextInput);
+export default DefaultTextInput;
