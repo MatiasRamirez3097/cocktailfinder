@@ -7,20 +7,23 @@ import {connect} from 'react-redux';
 import DefaultTextInput from '../../components/DefaultTextInput/DefaultTextInput';
 import {getCocktailsAction} from '../../store/actions/CocktailActions';
 import {bindActionCreators} from 'redux';
+import DefaultFlatList from '../../components/DefaultFlatList/DefaultFlatList';
 class FinderScreen extends Component {
   render() {
     const {cocktails, loading} = this.props;
-    console.log('the cocktails', cocktails, loading);
     return (
       <View style={styles.view}>
-        <DefaultText value="asd" />
-        <DefaultTextInput handleOnChangeText={text => this.getData(text)} />
+        <DefaultTextInput
+          placeholder="Escribe para buscar"
+          handleOnChangeText={text => this.getData(text)}
+        />
+        <DefaultFlatList data={cocktails} />
         <TouchableOpacity
           style={styles.button}
           onPress={() => {
             this.props.navigation.navigate({routeName: 'Home'});
           }}>
-          <Text>Ir al inicio</Text>
+          <Text style={styles.text}>Ir al inicio</Text>
         </TouchableOpacity>
       </View>
     );
@@ -28,7 +31,6 @@ class FinderScreen extends Component {
   getData = async text => {
     if (text.length >= 3) {
       const {getCocktailsConnected} = this.props;
-      //console.log(cocktails, 'este es cocktails');
       await getCocktailsConnected(text);
     }
   };

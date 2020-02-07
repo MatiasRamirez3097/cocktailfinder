@@ -6,7 +6,6 @@ export default class CocktailsService {
       try {
         const endpoint = CocktailsConfig.getDrinks(text);
         const response = await CocktailsConfig.APIConnector.get(endpoint);
-        console.log('llego hasta aca', endpoint, response);
         if (response.drinks) {
           resolve(response);
         } else {

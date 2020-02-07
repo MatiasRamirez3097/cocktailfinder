@@ -1,24 +1,33 @@
-import { StyleSheet } from 'react-native'
+import {StyleSheet} from 'react-native';
 const styles = StyleSheet.create({
-    view:{
-        backgroundColor: '#000',
-        height: '100%',
-        alignContent: 'center',
-        justifyContent: 'center'
-    },
-    textInput:{
-        width: '80%',
-        borderColor: 'blue',
-        backgroundColor: "#FFF",
-        borderRadius: 5,
-        alignSelf:'center'
-    },
-    button:{
-        width: '80%',
-        alignSelf: 'center',
-        backgroundColor: '#0FF',
-        borderRadius: 5,
-        padding: 10
-    },
+  view: {
+    backgroundColor: '#000',
+    height: '100%',
+    alignContent: 'center',
+    justifyContent: 'center',
+  },
+  textInput: {
+    width: '80%',
+    borderColor: 'blue',
+    backgroundColor: '#FFF',
+    borderRadius: 5,
+    alignSelf: 'center',
+  },
+  button: {
+    width: '80%',
+    alignSelf: 'center',
+    backgroundColor: '#00F',
+    borderRadius: 10,
+    borderColor: '#FFF',
+    borderWidth: 0.5,
+    padding: 10,
+    opacity: 1,
+  },
+  text: {
+    fontSize: 30,
+    color: '#FFF',
+    alignSelf: 'center',
+    opacity: 1,
+  },
 });
 export default styles;
