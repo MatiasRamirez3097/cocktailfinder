@@ -7,7 +7,7 @@ export default class CocktailsService {
       console.log('promise');
       try {
         console.log('try');
-        const endpoint = CocktailsConfig.drinks(text);
+        const endpoint = CocktailsConfig.getDrinks() + text;
         console.log(endpoint);
         const response = await CocktailsConfig.APIConnector.get(endpoint);
         console.log('llego hasta aca', endpoint, response);
