@@ -34,7 +34,7 @@ const Errors = {
   ID_DUPLICATED_MSG: 'Duplicate Name',
 };
 
-function _Error({ code, message }) {
+function _Error({code, message}) {
   this.code = code;
   this.message = message || 'Default Message';
 }
@@ -43,12 +43,14 @@ _Error.prototype.constructor = _Error;
 
 export default class APIConnector {
   constructor(options = {}) {
-    const { timeout = 0 } = options;
+    const {timeout = 0} = options;
 
     this._fetch = fetch;
 
     this._defaultHeaders = APIConnector.defaultHeaders;
-    if (timeout) this._timeout = timeout;
+    if (timeout) {
+      this._timeout = timeout;
+    }
   }
 
   static get defaultHeaders() {
@@ -68,46 +70,58 @@ export default class APIConnector {
   }
 
   head(uri, args = {}) {
-    return this._request(uri, { ...args, method: Methods.HEAD });
+    return this._request(uri, {...args, method: Methods.HEAD});
   }
 
   get(uri, args = {}) {
-    return this._request(uri, { ...args, method: Methods.GET });
+    return this._request(uri, {...args, method: Methods.GET});
   }
 
   post(uri, args = {}) {
-    return this._request(uri, { ...args, method: Methods.POST });
+    return this._request(uri, {...args, method: Methods.POST});
   }
 
   put(uri, args = {}) {
-    return this._request(uri, { ...args, method: Methods.PUT });
+    return this._request(uri, {...args, method: Methods.PUT});
   }
 
   patch(uri, args = {}) {
-    return this._request(uri, { ...args, method: Methods.PATCH });
+    return this._request(uri, {...args, method: Methods.PATCH});
   }
 
   delete(uri, args = {}) {
-    return this._request(uri, { ...args, method: Methods.DELETE });
+    return this._request(uri, {...args, method: Methods.DELETE});
   }
 
   _request(uri, args = {}) {
-    let { method, headers = {}, body, emptyResponse, checkResponseCode, uploadFormData } = args;
+    let {
+      method,
+      headers = {},
+      body,
+      emptyResponse,
+      checkResponseCode,
+      uploadFormData,
+    } = args;
 
-    if (!uri || uri instanceof String)
+    if (!uri || uri instanceof String) {
       return logger.error(`No valid uri given for method ${method}`) && this;
+    }
 
     let options = {};
     options.method = method;
-    options.headers = { ...this._defaultHeaders, ...headers };
-    if (body) options.body = body;
+    options.headers = {...this._defaultHeaders, ...headers};
+    if (body) {
+      options.body = body;
+    }
 
     let time = +new Date();
-    let bodyLog = options.body ? ` & body: ${JSON.stringify(options.body).substr(0, 80)}...` : '';
+    let bodyLog = options.body
+      ? ` & body: ${JSON.stringify(options.body).substr(0, 80)}...`
+      : '';
     logger.info(
       `request ${options.method}: ${uri} sent, headers: ${JSON.stringify(
-        options.headers
-      )}${bodyLog}`
+        options.headers,
+      )}${bodyLog}`,
     );
 
     if (uploadFormData) {
@@ -120,22 +134,30 @@ export default class APIConnector {
 
       if (this._timeout) {
         setTimeout(() => {
-          if (requestDone) return;
+          if (requestDone) {
+            return;
+          }
           timeoutReached = true;
           let err = new TypeError(Errors.TIMEOUT_MSG);
           err.code = Errors.TIMEOUT;
-          logger.info(`request ${method}: ${uri} timeout after ${+new Date() - time}ms`);
+          logger.info(
+            `request ${method}: ${uri} timeout after ${+new Date() - time}ms`,
+          );
           reject(err);
         }, this._timeout);
       }
 
       request.then(response => {
         requestDone = true;
-        if (timeoutReached) return;
-        logger.info(`request ${method}: ${uri} completed, took: ${+new Date() - time}ms`);
+        if (timeoutReached) {
+          return;
+        }
+        logger.info(
+          `request ${method}: ${uri} completed, took: ${+new Date() - time}ms`,
+        );
 
         if (!response.ok && response.status === 503) {
-          reject(new _Error({ code: 503, message: Errors.SERVER_ERROR_MSG }));
+          reject(new _Error({code: 503, message: Errors.SERVER_ERROR_MSG}));
         }
 
         if (response && (response.status === 500 || response.status === 404)) {
@@ -147,7 +169,7 @@ export default class APIConnector {
           ) {
             reject(response.json());
           } else {
-            reject(new _Error({ code: 500, message: Errors.SERVER_ERROR_MSG }));
+            reject(new _Error({code: 500, message: Errors.SERVER_ERROR_MSG}));
           }
         }
 
@@ -156,7 +178,7 @@ export default class APIConnector {
             new _Error({
               code: Errors.REQUEST_ENTITY_TOO_LARGE,
               message: Errors.REQUEST_ENTITY_TOO_LARGE_MSG,
-            })
+            }),
           );
         }
 
@@ -169,7 +191,7 @@ export default class APIConnector {
             new _Error({
               code: Errors.ID_DUPLICATED,
               message: Errors.ID_DUPLICATED_MSG,
-            })
+            }),
           );
         }
 
@@ -178,7 +200,7 @@ export default class APIConnector {
             new _Error({
               code: Errors.UNAUTHORIZED_ERROR,
               message: Errors.UNAUTHORIZED_ERROR_MSG,
-            })
+            }),
           );
         }
         if (response.status === 204) {
@@ -190,9 +212,12 @@ export default class APIConnector {
 
       request.catch(err => {
         requestDone = true;
-        if (timeoutReached) return;
+        if (timeoutReached) {
+          return;
+        }
         logger.error(
-          `request ${method}: ${uri} raised error: ${err}, took ${+new Date() - time}ms`
+          `request ${method}: ${uri} raised error: ${err}, took ${+new Date() -
+            time}ms`,
         );
         if (err.message === Errors.NO_CONNECTION_MSG) {
           err.code = Errors.NO_CONNECTION;
@@ -210,24 +235,28 @@ export default class APIConnector {
       let xhr = new XMLHttpRequest();
       xhr.open(options.method, uri);
 
-      if (options.headers['X-Session'])
+      if (options.headers['X-Session']) {
         xhr.setRequestHeader('X-Session', options.headers['X-Session']);
+      }
       xhr.setRequestHeader('X-ApiKey', options.headers['X-ApiKey']);
       xhr.setRequestHeader('X-RequestId', options.headers['X-RequestId']);
       xhr.setRequestHeader('X-TrackingId', options.headers['X-TrackingId']);
       xhr.onload = () => {
-        logger.info(`request ${options.method}: ${uri} completed, took: ${+new Date() - time}ms`);
+        logger.info(
+          `request ${options.method}: ${uri} completed, took: ${+new Date() -
+            time}ms`,
+        );
         if (xhr.status !== 200) {
-          reject(new _Error({ code: xhr.status, message: xhr.responseText }));
+          reject(new _Error({code: xhr.status, message: xhr.responseText}));
         }
         if (!xhr.responseText) {
           // eslint-disable-next-line no-console
           console.log('Upload failed No response payload.');
-          reject(new _Error({ code: 500, message: xhr.responseText }));
+          reject(new _Error({code: 500, message: xhr.responseText}));
         }
         let index = xhr.responseText.indexOf('arcor.com');
         if (index !== -1) {
-          reject(new _Error({ code: 500, message: xhr.responseText }));
+          reject(new _Error({code: 500, message: xhr.responseText}));
         }
         resolve(xhr.responseText);
       };

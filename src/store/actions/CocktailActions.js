@@ -1,5 +1,10 @@
-import { FETCHING_DATA, FETCHING_DATA_SUCCESS, FETCHING_DATA_REJECTED } from '../constants'
-import DrinkService from '../../providers/services/ApiCocktails'
+import {
+  GET_COCKTAILS_REQUEST,
+  GET_COCKTAILS_SUCCESS,
+  GET_COCKTAILS_ERROR,
+} from './types';
+
+import CocktailsService from '../../providers/services/CocktailsService';
 /*export const chargeCocktails = cocktails => (
     {
       type: 'CHARGE_COCKTAILS',
@@ -7,34 +12,19 @@ import DrinkService from '../../providers/services/ApiCocktails'
     }
 );*/
 
-export const getData = () => {
-  return {
-    type: 'FETCHING_DATA'
-  }
-}
-export const getDataSuccess = data => {
-  return {
-    type: 'FETCHING_DATA_SUCCESS',
-    data
-  }
-}
-export const getDataFailure = () => {
-  return {
-    type: 'FETCHING_DATA_FAILURE',
-  }
-}
-export function fetchData(data, loading, value) {
-  loading = false;
-  return async (dispatch) => {
-    try{
-      if(!loading)
-      {
-        dispatch(getData());
-        let drinks = DrinkService.getDrinks("vod")
-      }
-    }catch(err)
-    {
-      dispatch(getDataFailure(err))
+export function getCocktails(text) {
+  console.log('hola');
+  console.log(text);
+  return async dispatch => {
+    dispatch({type: GET_COCKTAILS_REQUEST});
+    console.log('antes del catch');
+    try {
+      console.log(text);
+      const response = await CocktailsService.getDrinks(text);
+      console.log('the drinks are', response);
+      dispatch({type: GET_COCKTAILS_SUCCESS, payload: response});
+    } catch (err) {
+      dispatch({type: GET_COCKTAILS_ERROR, error: err});
     }
-  }
+  };
 }

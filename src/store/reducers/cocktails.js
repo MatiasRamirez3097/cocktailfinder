@@ -1,52 +1,41 @@
-import { FETCHING_DATA_REJECTED, FETCHING_DATA_SUCCESS, FETCHING_DATA } from "../constants";
+import {
+  GET_COCKTAILS_REQUEST,
+  GET_COCKTAILS_SUCCESS,
+  GET_COCKTAILS_ERROR,
+} from '../actions/types';
 
-/*const initialState = {
-    cocktailsReducer: null
-}
-
-const cocktailsReducer = (state = initialState, action) => {
-    switch (action.type)
-    {
-        case 'CHARGE_COCKTAILS':
-            const newState(action.payload)
-            return newState;
-        default:
-            return state;
-    }
-}*/
 const initialState = {
-    //Have a people array responsible for getting the data and setting to the array.
-    data: [],
-    //Have the loading state indicate if it's done getting data.
-    loading: false,
-    //Have state for error message for recieving an error.
-    error: false,
-}
-
+  //Have a people array responsible for getting the cocktails and setting to the array.
+  cocktails: [],
+  //Have the loading state indicate if it's done getting cocktails.
+  loading: false,
+  //Have state for error message for recieving an error.
+  error: null,
+};
 
 const cocktailsReducer = (state = initialState, action) => {
-    switch(action.type) {
-        case FETCHING_DATA: 
-            return {
-                ...state,
-                data: [], 
-                loading: true
-            };
-        case FETCHING_DATA_SUCCESS:
-            return {
-                ...state, 
-                data: action.data, 
-                loading: false,
-            }
-        case FETCHING_DATA_REJECTED:
-            return {
-                ...state, 
-                loading: false,
-                error: true
-            };
-        default: 
-            return state;
-    }
-}
+  switch (action.type) {
+    case GET_COCKTAILS_REQUEST:
+      return {
+        ...state,
+        loading: true,
+        error: null,
+      };
+    case GET_COCKTAILS_SUCCESS:
+      return {
+        ...state,
+        cocktails: action.payload,
+        loading: false,
+      };
+    case GET_COCKTAILS_ERROR:
+      return {
+        ...state,
+        loading: false,
+        error: action.error,
+      };
+    default:
+      return state;
+  }
+};
 
 export default cocktailsReducer;

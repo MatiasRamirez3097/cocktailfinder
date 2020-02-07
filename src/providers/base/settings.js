@@ -1,4 +1,4 @@
-import { URL_API } from '../../config/index';
+import {API} from '../../config/index';
 
 let _env = 'LC';
 class Settings {
@@ -11,9 +11,9 @@ class Settings {
       case 'DV':
         return '';
       case 'LC':
-        return URL_API;
+        return API;
       default:
-        return URL_API;
+        return API;
     }
   }
 

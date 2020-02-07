@@ -1,49 +1,43 @@
-import React, { Component } from 'react';
-import { TextInput, View, Text } from 'react-native';
-import {connect} from 'react-redux';
-import {fetchData} from '../../store/actions/CocktailActions'
-import { URL_API } from "../../config/index";
+import React, {Component} from 'react';
+import {TextInput, View, Text} from 'react-native';
+//import {connect} from 'react-redux';
+//import {bindActionCreators} from 'redux';
+//import {getCocktails} from '../../store/actions/CocktailActions';
 
-import PropTypes from 'prop-types'
-class DefaultTextInput extends Component{
-    static propTypes = {
-        onChangeText: String,
-        placeholder: String,
-        style: String
-    }
-    UNSAFE_componentWillMount()
-    {
-        this.props.fetchData()
-    }
-    getDat()
-    {
-        const {dataaa} =this.props.fetchData()
-        return <Text>{dataaa}</Text>
-    }
-    render = () => {
-        const {onChangeText, placeholder} = this.props;
-        return(
-            <View>
-                
-                <Text style={{color: 'white'}}>{URL_API}</Text>
-                <Text style={{color: 'white'}}>{this.getDat()}</Text>
-                <TextInput 
-                    style={{color: 'white'}}
-                    onChangeText={onChangeText}
-                    placeholder={placeholder}
-                />
-            </View>
-        )
-    }
-}
+import PropTypes from 'prop-types';
+class DefaultTextInput extends Component {
+  /*componentDidMount() {
+    this.getData();
+  }
 
-const mapStateToProps = (state) => {
-    const {cocktails} = state
-    return {cocktails}
-};
-const mapDIspatchToProps = (dispatch) => {
-    return {
-        fetchData: () => dispatch(fetchData())
-    }
+  getData = async () => {
+    const {getCocktailsConnected} = this.props;
+    console.log('asd');
+    await getCocktailsConnected();
+  };*/
+
+  render() {
+    const {habdleOnChangeText, placeholder} = this.props;
+    return (
+      <View>
+        <TextInput
+          style={{
+            width: '80%',
+            borderColor: 'blue',
+            backgroundColor: '#FFF',
+            borderRadius: 5,
+            alignSelf: 'center',
+          }}
+          onChangeText={this.props.handleOnChangeText}
+          placeholder={placeholder}
+        />
+      </View>
+    );
+  }
 }
-export default connect(mapStateToProps, mapDIspatchToProps)(DefaultTextInput);
+/*DefaultTextInput.propTypes = {
+  onChangeText: PropTypes.function,
+  placeholder: PropTypes.string,
+  style: PropTypes.object,
+};*/
+export default DefaultTextInput;
