@@ -2,22 +2,18 @@ import CocktailsConfig from './CocktailsConfig';
 
 export default class CocktailsService {
   static getDrinks(text) {
-    console.log('getDrinks');
     return new Promise(async (resolve, reject) => {
-      console.log('promise');
       try {
-        console.log('try');
-        const endpoint = CocktailsConfig.getDrinks() + text;
-        console.log(endpoint);
+        const endpoint = CocktailsConfig.getDrinks(text);
         const response = await CocktailsConfig.APIConnector.get(endpoint);
         console.log('llego hasta aca', endpoint, response);
-        if (response.ok) {
+        if (response.drinks) {
           resolve(response);
         } else {
           reject();
         }
       } catch (error) {
-        console.log('cath', error);
+        console.log('\nError on getDrinks', error, '\n');
         reject(error);
       }
     });

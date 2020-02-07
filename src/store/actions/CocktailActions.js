@@ -12,7 +12,7 @@ import CocktailsService from '../../providers/services/CocktailsService';
     }
 );*/
 
-export function getCocktails(text) {
+export function getCocktailsAction(text) {
   console.log('hola');
   console.log(text);
   return async dispatch => {
@@ -22,7 +22,7 @@ export function getCocktails(text) {
       console.log(text);
       const response = await CocktailsService.getDrinks(text);
       console.log('the drinks are', response);
-      dispatch({type: GET_COCKTAILS_SUCCESS, payload: response});
+      dispatch({type: GET_COCKTAILS_SUCCESS, payload: response.drinks});
     } catch (err) {
       dispatch({type: GET_COCKTAILS_ERROR, error: err});
     }
