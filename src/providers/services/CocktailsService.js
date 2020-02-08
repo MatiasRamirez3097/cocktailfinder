@@ -6,7 +6,7 @@ export default class CocktailsService {
       try {
         const endpoint = CocktailsConfig.getDrinks(text);
         const response = await CocktailsConfig.APIConnector.get(endpoint);
-        if (response.drinks) {
+        if (response.drinks || response.drinks == null) {
           resolve(response);
         } else {
           reject();

@@ -6,7 +6,7 @@ import {
 
 const initialState = {
   //Have a people array responsible for getting the cocktails and setting to the array.
-  cocktails: [],
+  cocktails: null,
   //Have the loading state indicate if it's done getting cocktails.
   loading: false,
   //Have state for error message for recieving an error.

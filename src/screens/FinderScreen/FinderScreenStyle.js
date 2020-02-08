@@ -11,7 +11,8 @@ const styles = StyleSheet.create({
     borderColor: 'blue',
     backgroundColor: '#FFF',
     borderRadius: 5,
-    alignSelf: 'center',
+    alignSelf: 'flex-start',
+    top: 0,
   },
   button: {
     width: '80%',
