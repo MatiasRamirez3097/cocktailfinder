@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, StatusBar, ProgressBarAndroid} from 'react-native';
 import styles from './FinderScreenStyle';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-import DefaultText from '../../components/DefaultText/DefaultText';
 import {connect} from 'react-redux';
 import DefaultTextInput from '../../components/DefaultTextInput/DefaultTextInput';
 import {getCocktailsAction} from '../../store/actions/CocktailActions';
@@ -17,6 +16,8 @@ class FinderScreen extends Component {
           placeholder="Escribe para buscar"
           handleOnChangeText={text => this.getData(text)}
         />
+        <StatusBar backgroundColor="black" barStyle="light-content" />
+        <ProgressBarAndroid styleAttr="Horizontal" indeterminate={loading} />
         <DefaultFlatList data={cocktails} />
         <TouchableOpacity
           style={styles.button}

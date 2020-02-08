@@ -1,33 +1,14 @@
 import React, {Component} from 'react';
-import {TextInput, View, Text} from 'react-native';
-//import {connect} from 'react-redux';
-//import {bindActionCreators} from 'redux';
-//import {getCocktails} from '../../store/actions/CocktailActions';
-
+import {TextInput, View} from 'react-native';
 import PropTypes from 'prop-types';
+import styles from './style';
 class DefaultTextInput extends Component {
-  /*componentDidMount() {
-    this.getData();
-  }
-
-  getData = async () => {
-    const {getCocktailsConnected} = this.props;
-    console.log('asd');
-    await getCocktailsConnected();
-  };*/
-
   render() {
-    const {habdleOnChangeText, placeholder} = this.props;
+    const {placeholder} = this.props;
     return (
       <View>
         <TextInput
-          style={{
-            width: '80%',
-            borderColor: 'blue',
-            backgroundColor: '#FFF',
-            borderRadius: 5,
-            alignSelf: 'center',
-          }}
+          style={styles.textInput}
           onChangeText={this.props.handleOnChangeText}
           placeholder={placeholder}
         />
