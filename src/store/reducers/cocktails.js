@@ -32,6 +32,7 @@ const cocktailsReducer = (state = initialState, action) => {
     case GET_COCKTAILS_ERROR:
       return {
         ...state,
+        cocktails: null,
         loading: false,
         error: action.error,
       };

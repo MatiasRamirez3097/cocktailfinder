@@ -5,15 +5,17 @@ export default class CocktailsService {
     return new Promise(async (resolve, reject) => {
       try {
         const endpoint = CocktailsConfig.getDrinks(text);
+        console.log('hooolalalal');
         const response = await CocktailsConfig.APIConnector.get(endpoint);
-        if (response.drinks || response.drinks == null) {
+        console.log('hooooooolaaaaaaaaa');
+        if (response != null) {
           resolve(response);
         } else {
           reject();
         }
       } catch (error) {
         console.log('\nError on getDrinks', error, '\n');
-        reject(error);
+        reject();
       }
     });
   }

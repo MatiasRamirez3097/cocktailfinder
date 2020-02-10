@@ -17,6 +17,11 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   text: {
+    fontSize: 20,
+    textAlign: 'center',
+    color: '#FFF',
+  },
+  title: {
     fontSize: 30,
     color: '#FFF',
     alignSelf: 'center',

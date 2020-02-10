@@ -5,10 +5,14 @@ import Item from './Item';
 import styles from './style';
 class DefaultFlatList extends Component {
   render() {
-    if (this.props.data != undefined) {
+    if (
+      this.props.data !== undefined &&
+      this.props.data != null &&
+      this.props.error === false
+    ) {
       if (this.props.data.length > 0) {
         return (
-          <View>
+          <View style={styles.view}>
             <FlatList
               style={styles.flatList}
               data={this.props.data}
@@ -20,6 +24,9 @@ class DefaultFlatList extends Component {
           </View>
         );
       }
+    } else if (this.props.data === null && this.props.error === false) {
+      console.log('es igual a null');
+      return <Text style={styles.text}>Comienza la busqueda!</Text>;
     } else {
       /*return (
         <View>
@@ -28,6 +35,8 @@ class DefaultFlatList extends Component {
           </Text>
         </View>
       );*/
+
+      console.log('es undefined');
       return (
         <View style={styles.viewEmpty}>
           <Item title="No se encontraron resultados" />

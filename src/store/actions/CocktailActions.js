@@ -19,6 +19,7 @@ export function getCocktailsAction(text) {
       const response = await CocktailsService.getDrinks(text);
       dispatch({type: GET_COCKTAILS_SUCCESS, payload: response.drinks});
     } catch (err) {
+      console.log(' es un errorrr');
       dispatch({type: GET_COCKTAILS_ERROR, error: err});
     }
   };
