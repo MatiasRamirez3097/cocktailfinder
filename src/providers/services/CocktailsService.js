@@ -11,11 +11,11 @@ export default class CocktailsService {
         if (response != null) {
           resolve(response);
         } else {
-          reject();
+          reject(response);
         }
       } catch (error) {
         console.log('\nError on getDrinks', error, '\n');
-        reject();
+        reject(error);
       }
     });
   }

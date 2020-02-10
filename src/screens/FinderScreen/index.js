@@ -21,13 +21,11 @@ class FinderScreen extends Component {
     headerRight: () => (
       <TouchableOpacity
         style={{color: 'white', paddingRight: 10}}
-        onPress={() => {
-          navigation.navigate('Help');
-        }}>
+        onPress={() => navigation.navigate({routeName: 'Help'})}>
         <Icon name="question" size={30} color="white" />
       </TouchableOpacity>
     ),
-    headerStyle: {backgroundColor: 'blue'},
+    headerStyle: {backgroundColor: 'black'},
     headerTitleStyle: {
       color: 'white',
       textAlign: 'center',
@@ -42,7 +40,7 @@ class FinderScreen extends Component {
           placeholder="Escribe para buscar"
           handleOnChangeText={text => this.getData(text)}
         />
-        <StatusBar backgroundColor="blue" barStyle="light-content" />
+        <StatusBar backgroundColor="black" barStyle="light-content" />
         <ProgressBarAndroid styleAttr="Horizontal" indeterminate={loading} />
         <DefaultFlatList data={cocktails} error={error ? true : false} />
       </View>
