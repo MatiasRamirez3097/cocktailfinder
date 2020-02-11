@@ -6,13 +6,20 @@ import DefaultTextInput from '../../components/DefaultTextInput';
 import {getCocktailsAction} from '../../store/actions/CocktailActions';
 import {bindActionCreators} from 'redux';
 import DefaultFlatList from '../../components/DefaultFlatList';
-//import Icon from 'react-native-vector-icons/FontAwesome';
-
+import Header from '../../components/header';
 class FinderScreen extends Component {
   render() {
-    const {cocktails, loading, error} = this.props;
+    const {cocktails, loading, error, navigation} = this.props;
     return (
       <View style={styles.view}>
+        <Header
+          navigation={navigation}
+          title="Cocktails Search"
+          buttonLeft="arrow-left"
+          buttonRight="question"
+          urlLeft="Home"
+          urlRight="Help"
+        />
         <DefaultTextInput
           placeholder="Escribe para buscar"
           handleOnChangeText={text => this.getData(text)}

@@ -4,9 +4,6 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import styles from './style';
 import Icon from 'react-native-vector-icons/FontAwesome';
 class HomeScreen extends Component {
-  static navigationOptions = {
-    headerShown: false,
-  };
   render() {
     return (
       <ImageBackground
