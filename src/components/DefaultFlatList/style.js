@@ -10,8 +10,8 @@ const styles = StyleSheet.create({
     fontSize: 32,
   },
   flatList: {
-    height: '80%',
-    width: '96%',
+    height: '100%',
+    width: '100%',
     alignSelf: 'center',
   },
   view: {
@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     alignItems: 'center',
     margin: 6,
-    height: '90%',
+    height: '96%',
     width: '100%',
     borderRadius: 10,
     backgroundColor: '#000',

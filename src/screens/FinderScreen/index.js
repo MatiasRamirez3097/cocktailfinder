@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, StatusBar, ProgressBarAndroid} from 'react-native';
+import {View, StatusBar, ProgressBarAndroid, Platform} from 'react-native';
 import styles from './style';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {connect} from 'react-redux';
@@ -8,12 +8,13 @@ import {getCocktailsAction} from '../../store/actions/CocktailActions';
 import {bindActionCreators} from 'redux';
 import DefaultFlatList from '../../components/DefaultFlatList';
 import Icon from 'react-native-vector-icons/FontAwesome';
+
 class FinderScreen extends Component {
-  static navigationOptions = ({navigation, screenProps}) => ({
+  static navigationOptions = ({styles, navigation, screenProps}) => ({
     headerTitle: 'Cocktails search',
     headerLeft: () => (
       <TouchableOpacity
-        style={{color: 'white', paddingLeft: 10}}
+        style={styles.headerTouchableOpacity}
         onPress={() => navigation.navigate({routeName: 'Home'})}>
         <Icon name="arrow-left" size={30} color="white" />
       </TouchableOpacity>
@@ -25,9 +26,12 @@ class FinderScreen extends Component {
         <Icon name="question" size={30} color="white" />
       </TouchableOpacity>
     ),
-    headerStyle: {backgroundColor: 'black'},
+    headerStyle:
+      Platform.OS === 'android'
+        ? {backgroundColor: 'black'}
+        : {backgroundColor: 'white'},
     headerTitleStyle: {
-      color: 'white',
+      color: Platform.OS === 'android' ? 'white' : 'black',
       textAlign: 'center',
       alignSelf: 'center',
     },

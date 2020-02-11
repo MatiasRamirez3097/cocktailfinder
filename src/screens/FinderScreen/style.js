@@ -1,5 +1,9 @@
 import {StyleSheet} from 'react-native';
 const styles = StyleSheet.create({
+  headerTouchableOpacity: {
+    color: 'white',
+    paddingLeft: 10,
+  },
   view: {
     backgroundColor: '#000',
     height: '100%',
