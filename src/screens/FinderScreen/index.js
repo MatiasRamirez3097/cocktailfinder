@@ -17,8 +17,8 @@ class FinderScreen extends Component {
           title="Cocktails Search"
           buttonLeft="arrow-left"
           buttonRight="question"
-          urlLeft="Home"
-          urlRight="Help"
+          urlLeft={() => navigation.navigate({routeName: 'Home'})}
+          urlRight={() => navigation.navigate({routeName: 'Help'})}
         />
         <DefaultTextInput
           placeholder="Escribe para buscar"

@@ -9,8 +9,7 @@ class HelpScreen extends Component {
       <View style={styles.view}>
         <Header
           buttonLeft="arrow-left"
-          navigation={navigation}
-          urlLeft="Finder"
+          urlLeft={() => navigation.navigate({routeName: 'Finder'})}
           title="Ayuda"
         />
         <Text style={styles.text}>
