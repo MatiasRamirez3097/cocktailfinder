@@ -5,7 +5,12 @@ class HelpScreen extends Component {
   render() {
     return (
       <View style={styles.view}>
-        <Text>asd</Text>
+        <Text style={styles.text}>
+          Para utilizar esta aplicación tiene que hacer solamente algo tan
+          simple como escribir en el cuadro de texto de la pantalla anterior,
+          teniendo en cuenta que solo eomenzara a buscar a partir de los 3
+          caracteres.
+        </Text>
       </View>
     );
   }

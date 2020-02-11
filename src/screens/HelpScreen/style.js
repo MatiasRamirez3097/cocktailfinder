@@ -5,5 +5,11 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
   },
+  text: {
+    alignSelf: 'center',
+    width: '80%',
+    color: 'white',
+    fontSize: 25,
+  },
 });
 export default styles;
