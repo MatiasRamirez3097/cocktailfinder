@@ -1,5 +1,9 @@
 import {StyleSheet} from 'react-native';
 const styles = StyleSheet.create({
+  contentVIew: {
+    width: '100%',
+    height: '90%',
+  },
   headerTouchableOpacity: {
     color: 'white',
     paddingLeft: 10,

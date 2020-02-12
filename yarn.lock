@@ -5181,6 +5181,11 @@ react-native-iphone-x-helper@^1.2.1:
   resolved "https://registry.yarnpkg.com/react-native-iphone-x-helper/-/react-native-iphone-x-helper-1.2.1.tgz#645e2ffbbb49e80844bb4cbbe34a126fda1e6772"
   integrity sha512-/VbpIEp8tSNNHIvstuA3Swx610whci1Zpc9mqNkqn14DkMbw+ORviln2u0XyHG1kPvvwTNGZY6QpeFwxYaSdbQ==
 
+react-native-linear-gradient@^2.5.6:
+  version "2.5.6"
+  resolved "https://registry.yarnpkg.com/react-native-linear-gradient/-/react-native-linear-gradient-2.5.6.tgz#96215cbc5ec7a01247a20890888aa75b834d44a0"
+  integrity sha512-HDwEaXcQIuXXCV70O+bK1rizFong3wj+5Q/jSyifKFLg0VWF95xh8XQgfzXwtq0NggL9vNjPKXa016KuFu+VFg==
+
 react-native-reanimated@^1.7.0:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-1.7.0.tgz#896db2576552ac59d288a1f6c7f00afc171f240c"
@@ -5204,6 +5209,14 @@ react-native-screens@^2.0.0-alpha.34:
   integrity sha512-O5h8S9rc25QCfWZ9NA6tBn7Wr6a3GsswI+MdtAbwpjXOkQ6ShN8mK/ROzN4Ls2HipWMVSi/1Mz6iuVhNlayJWw==
   dependencies:
     debounce "^1.2.0"
+
+react-native-skeleton-content-nonexpo@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/react-native-skeleton-content-nonexpo/-/react-native-skeleton-content-nonexpo-1.0.4.tgz#83c7e5995a9d0be49b076e6bff4233d199ab4a8e"
+  integrity sha512-XLrltBFHmpJJUjUMjk8F468eoBp+msO8mrqQCdiWptRicuzIYowjE2DmSToB/N3m607+P0xB+ANU5ped1Lsxdw==
+  dependencies:
+    lodash "^4.17.14"
+    react-native-linear-gradient "^2.5.6"
 
 react-native-vector-icons@^6.6.0:
   version "6.6.0"
