@@ -36,7 +36,6 @@ class FinderScreen extends Component {
         </View>
       </View>
     );
-    //
   }
   getData = async text => {
     if (text.length >= 3) {

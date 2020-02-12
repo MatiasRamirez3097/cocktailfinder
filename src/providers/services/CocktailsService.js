@@ -5,9 +5,7 @@ export default class CocktailsService {
     return new Promise(async (resolve, reject) => {
       try {
         const endpoint = CocktailsConfig.getDrinks(text);
-        console.log('hooolalalal');
         const response = await CocktailsConfig.APIConnector.get(endpoint);
-        console.log('hooooooolaaaaaaaaa');
         if (response != null) {
           resolve(response);
         } else {

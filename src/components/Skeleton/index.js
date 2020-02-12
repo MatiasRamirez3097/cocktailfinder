@@ -18,6 +18,7 @@ class Skeleton extends Component {
             borderRadius: 50,
             marginLeft: 10,
             marginTop: 15,
+            alignSelf: 'flex-start',
           },
           {
             key: 'name',
@@ -25,6 +26,15 @@ class Skeleton extends Component {
             height: 100,
             marginLeft: 5,
             marginTop: 15,
+            alignSelf: 'flex-start',
+          },
+          {
+            key: 'names',
+            width: 270,
+            height: 100,
+            marginLeft: 5,
+            marginTop: 15,
+            alignSelf: 'flex-start',
           },
         ]}
       />
