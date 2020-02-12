@@ -8,6 +8,7 @@ import {bindActionCreators} from 'redux';
 import DefaultFlatList from '../../components/DefaultFlatList';
 import Header from '../../components/header';
 import Skeleton from '../../components/Skeleton';
+import DefaultError from '../../components/DefaultError';
 class FinderScreen extends Component {
   render() {
     const {cocktails, loading, error, navigation} = this.props;
@@ -28,10 +29,30 @@ class FinderScreen extends Component {
           />
           <StatusBar backgroundColor="black" barStyle="light-content" />
           <ProgressBarAndroid styleAttr="Horizontal" indeterminate={loading} />
-          {!loading ? (
-            <DefaultFlatList data={cocktails} error={error ? true : false} />
-          ) : (
+          {loading ? (
             <Skeleton loading={loading} />
+          ) : cocktails && cocktails.length > 0 && !error ? (
+            <DefaultFlatList data={cocktails} error={error ? true : false} />
+          ) : cocktails === null && !error ? (
+            <DefaultError
+              error="No se encontraron resultados"
+              iconName="search"
+              iconColor="white"
+            />
+          ) : cocktails && cocktails.length === 0 && error ? (
+            <DefaultError
+              error="Error de conexion!"
+              iconName="search"
+              iconColor="white"
+            />
+          ) : cocktails.length === 0 && !error ? (
+            <DefaultError
+              error="Comience la busqueda!"
+              iconName="search"
+              iconColor="white"
+            />
+          ) : (
+            <DefaultError error="Error" iconName="search" iconColor="white" />
           )}
         </View>
       </View>

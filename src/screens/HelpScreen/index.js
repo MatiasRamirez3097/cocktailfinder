@@ -13,10 +13,11 @@ class HelpScreen extends Component {
           title="Ayuda"
         />
         <Text style={styles.text}>
-          Para utilizar esta aplicación tiene que hacer solamente algo tan
-          simple como escribir en el cuadro de texto de la pantalla anterior,
-          teniendo en cuenta que solo eomenzara a buscar a partir de los 3
-          caracteres.
+          Para utilizar esta aplicación sólo debe escribir en el cuadro de texto
+          para buscar.
+        </Text>
+        <Text style={styles.text}>
+          (recién a partir de los 3 primeros caractéres iniciará la búsqueda)
         </Text>
       </View>
     );

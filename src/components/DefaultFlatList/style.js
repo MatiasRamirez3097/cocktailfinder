@@ -24,6 +24,7 @@ const styles = StyleSheet.create({
     width: '100%',
     borderRadius: 10,
     backgroundColor: '#000',
+    justifyContent: 'center',
   },
   viewEmpty: {
     alignSelf: 'center',

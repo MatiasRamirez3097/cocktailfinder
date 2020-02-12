@@ -6,7 +6,7 @@ import {
 
 const initialState = {
   //Have a people array responsible for getting the cocktails and setting to the array.
-  cocktails: null,
+  cocktails: [],
   //Have the loading state indicate if it's done getting cocktails.
   loading: false,
   //Have state for error message for recieving an error.
@@ -32,7 +32,7 @@ const cocktailsReducer = (state = initialState, action) => {
     case GET_COCKTAILS_ERROR:
       return {
         ...state,
-        cocktails: null,
+        cocktails: [],
         loading: false,
         error: action.error,
       };

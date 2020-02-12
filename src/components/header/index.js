@@ -3,9 +3,11 @@ import {Text, View} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from './style';
+import PropTypes from 'prop-types';
 class Header extends Component {
   render() {
     const {buttonLeft, buttonRight, urlLeft, urlRight, title} = this.props;
+    console.log(urlLeft);
     return (
       <View style={styles.view}>
         <View style={styles.leftHeader}>
@@ -29,4 +31,9 @@ class Header extends Component {
     );
   }
 }
+Header.propTypes = {
+  buttonLeft: PropTypes.string,
+  buttonRight: PropTypes.string,
+  //urlLeft: PropTypes.func,
+};
 export default Header;
