@@ -7,6 +7,7 @@ import {
 import CocktailsService from '../../providers/services/CocktailsService';
 
 export function getCocktailsAction(text) {
+  console.log('en el action', text);
   return async dispatch => {
     dispatch({type: GET_COCKTAILS_REQUEST});
     try {

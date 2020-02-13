@@ -4,19 +4,23 @@ import PropTypes from 'prop-types';
 import styles from './style';
 class DefaultTextInput extends Component {
   render() {
+    const {onChangeText, placeholder, value} = this.props;
+    console.log('esta en el input', value);
     return (
       <View>
         <TextInput
           style={styles.textInput}
-          onChangeText={this.props.handleOnChangeText}
-          placeholder={this.props.placeholder}
+          onChangeText={onChangeText}
+          placeholder={placeholder}
+          value={value}
         />
       </View>
     );
   }
 }
 DefaultTextInput.propTypes = {
-  onChangeText: PropTypes.string,
+  onChangeText: PropTypes.func,
   placeholder: PropTypes.string,
+  value: PropTypes.string,
 };
 export default DefaultTextInput;

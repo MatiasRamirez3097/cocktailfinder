@@ -8,21 +8,27 @@ import {bindActionCreators} from 'redux';
 import DefaultFlatList from '../../components/DefaultFlatList';
 import Header from '../../components/header';
 import Skeleton from '../../components/Skeleton';
-import DefaultError from '../../components/DefaultFInderMsg';
+import DefaultFinderMsg from '../../components/DefaultFinderMsg';
 import PropTypes from 'prop-types';
 import {Field, reduxForm} from 'redux-form';
 class FinderScreen extends Component {
+  state = {
+    search: '',
+  };
   renderInput(props) {
+    console.log(props);
     return (
       <DefaultTextInput
         placeholder="Escribe para buscar"
-        handleOnChangeText={props.input.onChange}
+        onChangeText={props.input.onChange}
         value={props.input.value}
       />
     );
   }
   render() {
     const {cocktails, loading, error, navigation} = this.props;
+    console.log(cocktails);
+    const {search} = this.state;
     return (
       <View style={styles.view}>
         <Header
@@ -37,7 +43,9 @@ class FinderScreen extends Component {
           <Field
             component={this.renderInput}
             name="search"
-            onChange={this.getData}
+            onChange={this.onChange}
+            value={search}
+            type="text"
           />
           <StatusBar backgroundColor="black" barStyle="light-content" />
           {loading ? (
@@ -46,22 +54,20 @@ class FinderScreen extends Component {
               <Skeleton loading={loading} />
               <Skeleton loading={loading} />
             </>
-          ) : error === 'Request Timeout' ? (
-            <DefaultError
-              error="Error de conexion!"
+          ) : error ? (
+            <DefaultFinderMsg
+              error="asdasd"
               iconName="search"
               iconColor="white"
             />
-          ) : error ? (
-            <DefaultError error={error} iconName="search" iconColor="white" />
           ) : cocktails == null ? (
-            <DefaultError
+            <DefaultFinderMsg
               error="No se encontraron resultados"
               iconName="search"
               iconColor="white"
             />
           ) : !cocktails.length ? (
-            <DefaultError
+            <DefaultFinderMsg
               error="Comience la busqueda!"
               iconName="search"
               iconColor="white"
@@ -73,16 +79,23 @@ class FinderScreen extends Component {
       </View>
     );
   }
-  getData = async text => {
+  onChange = text => {
+    this.setState({
+      search: text,
+    });
+    this.getData(this.state.search);
+  };
+  getData = text => {
+    console.log('en get data', text);
     if (text.length >= 3) {
       const {getCocktailsConnected} = this.props;
-      await getCocktailsConnected(text);
+      console.log('en get data', text);
+      getCocktailsConnected(text);
     }
   };
 }
 
-const mapStateToProps = ({cocktails, form}) => ({
-  search: form.search,
+const mapStateToProps = ({cocktails}) => ({
   cocktails: cocktails.cocktails,
   loading: cocktails.loading,
   error: cocktails.error,
