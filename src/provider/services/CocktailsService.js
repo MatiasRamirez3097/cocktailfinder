@@ -2,6 +2,7 @@ import CocktailsConfig from './CocktailsConfig';
 
 export default class CocktailsService {
   static getDrinks(text) {
+    console.log('en service ', text);
     return new Promise(async (resolve, reject) => {
       try {
         const endpoint = CocktailsConfig.getDrinks(text);

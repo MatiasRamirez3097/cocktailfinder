@@ -27,7 +27,6 @@ class FinderScreen extends Component {
   }
   render() {
     const {cocktails, loading, error, navigation} = this.props;
-    console.log(cocktails);
     const {search} = this.state;
     return (
       <View style={styles.view}>
@@ -56,7 +55,7 @@ class FinderScreen extends Component {
             </>
           ) : error ? (
             <DefaultFinderMsg
-              error="asdasd"
+              error={error}
               iconName="search"
               iconColor="white"
             />
@@ -80,18 +79,18 @@ class FinderScreen extends Component {
     );
   }
   onChange = text => {
-    this.setState({
-      search: text,
-    });
-    this.getData(this.state.search);
-  };
-  getData = text => {
-    console.log('en get data', text);
-    if (text.length >= 3) {
-      const {getCocktailsConnected} = this.props;
-      console.log('en get data', text);
-      getCocktailsConnected(text);
-    }
+    this.setState(
+      {
+        search: text,
+      },
+      async () => {
+        const {search} = this.state;
+        if (text.length >= 3) {
+          const {getCocktailsConnected} = this.props;
+          await getCocktailsConnected(search);
+        }
+      },
+    );
   };
 }
 
@@ -115,11 +114,11 @@ FinderScreen.propTypes = {
   getCocktailsConnected: PropTypes.func,
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(
-  reduxForm({
-    form: 'search',
-  })(FinderScreen),
+export default reduxForm({
+  form: 'search',
+})(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+  )(FinderScreen),
 );

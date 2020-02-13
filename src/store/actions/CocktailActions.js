@@ -4,17 +4,16 @@ import {
   GET_COCKTAILS_ERROR,
 } from './types';
 
-import CocktailsService from '../../providers/services/CocktailsService';
+import CocktailsService from '../../provider/services/CocktailsService';
 
 export function getCocktailsAction(text) {
-  console.log('en el action', text);
   return async dispatch => {
     dispatch({type: GET_COCKTAILS_REQUEST});
     try {
       const response = await CocktailsService.getDrinks(text);
       dispatch({type: GET_COCKTAILS_SUCCESS, payload: response.drinks});
     } catch (err) {
-      dispatch({type: GET_COCKTAILS_ERROR, error: err});
+      dispatch({type: GET_COCKTAILS_ERROR, error: 'Oops!'});
     }
   };
 }
