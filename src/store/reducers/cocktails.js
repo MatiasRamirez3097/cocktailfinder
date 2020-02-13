@@ -14,7 +14,6 @@ const initialState = {
 };
 
 const cocktailsReducer = (state = initialState, action) => {
-  console.log(action.type);
   switch (action.type) {
     case GET_COCKTAILS_REQUEST:
       return {
@@ -23,7 +22,6 @@ const cocktailsReducer = (state = initialState, action) => {
         error: null,
       };
     case GET_COCKTAILS_SUCCESS:
-      console.log('success', action.payload);
       return {
         ...state,
         cocktails: action.payload,

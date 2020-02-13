@@ -4,10 +4,13 @@ const styles = StyleSheet.create({
     top: 4,
     width: '80%',
     borderColor: 'blue',
-    borderWidth: 4,
+    borderWidth: 2,
     backgroundColor: '#FFF',
-    borderRadius: 5,
+    borderRadius: 90,
     alignSelf: 'center',
+    alignContent: 'center',
+    justifyContent: 'center',
+    fontSize: 20,
   },
 });
 export default styles;

@@ -2,17 +2,20 @@ import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    flex: 1,
-    flexWrap: 'wrap',
-    marginTop: 10,
     //flexDirection: 'row',
+    paddingVertical: 10,
+    //flex: 1,
+    //flexWrap: 'wrap',
+    marginVertical: 10,
+    flexDirection: 'row',
     //alignSelf: 'center',
     //alignItems: 'baseline',
-    height: 300,
+    //height: 100,
     width: '100%',
-    backgroundColor: 'white',
+    backgroundColor: '#DDD',
     borderRadius: 8,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 export default styles;

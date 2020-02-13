@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 0,
     flexDirection: 'row',
-    height: '5%',
+    height: '8%',
     width: '100%',
   },
 });

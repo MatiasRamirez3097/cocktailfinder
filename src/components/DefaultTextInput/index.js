@@ -18,6 +18,5 @@ class DefaultTextInput extends Component {
 DefaultTextInput.propTypes = {
   onChangeText: PropTypes.string,
   placeholder: PropTypes.string,
-  style: PropTypes.object,
 };
 export default DefaultTextInput;

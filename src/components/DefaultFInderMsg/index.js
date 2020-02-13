@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import {Text, View} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from './style';
-class DefaultError extends Component {
+import PropTypes from 'prop-types';
+class DefaultFinderMsg extends Component {
   render() {
     const {error, iconName, iconColor} = this.props;
     return (
@@ -18,4 +19,9 @@ class DefaultError extends Component {
     );
   }
 }
-export default DefaultError;
+DefaultFinderMsg.propTypes = {
+  error: PropTypes.string,
+  iconColor: PropTypes.string.isRequired,
+  iconName: PropTypes.string.isRequired,
+};
+export default DefaultFinderMsg;

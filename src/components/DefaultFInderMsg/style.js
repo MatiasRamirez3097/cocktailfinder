@@ -2,6 +2,7 @@ import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   view: {
+    paddingTop: '5%',
     alignSelf: 'center',
   },
   icon: {
@@ -10,6 +11,7 @@ const styles = StyleSheet.create({
   text: {
     alignSelf: 'center',
     color: 'white',
+    fontSize: 20,
   },
 });
 

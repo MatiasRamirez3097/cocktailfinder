@@ -26,20 +26,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#000',
     justifyContent: 'center',
   },
-  viewEmpty: {
-    alignSelf: 'center',
-    alignItems: 'center',
-    margin: 0,
-    height: '20%',
-    width: '80%',
-    borderRadius: 10,
-    backgroundColor: '#FFF',
-  },
   image: {
     left: 5,
     alignSelf: 'center',
-    width: '30%',
-    height: '80%',
+    width: '50%',
+    height: '50%',
     borderRadius: 100,
   },
 });

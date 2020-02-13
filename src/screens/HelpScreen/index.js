@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {View, Text} from 'react-native';
 import styles from './style';
 import Header from '../../components/header';
+import PropTypes from 'prop-types';
 class HelpScreen extends Component {
   render() {
     const {navigation} = this.props;
@@ -23,4 +24,7 @@ class HelpScreen extends Component {
     );
   }
 }
+HelpScreen.propTypes = {
+  navigation: PropTypes.object,
+};
 export default HelpScreen;

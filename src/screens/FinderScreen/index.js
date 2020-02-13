@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, StatusBar, ProgressBarAndroid} from 'react-native';
+import {View, StatusBar} from 'react-native';
 import styles from './style';
 import {connect} from 'react-redux';
 import DefaultTextInput from '../../components/DefaultTextInput';
@@ -8,7 +8,8 @@ import {bindActionCreators} from 'redux';
 import DefaultFlatList from '../../components/DefaultFlatList';
 import Header from '../../components/header';
 import Skeleton from '../../components/Skeleton';
-import DefaultError from '../../components/DefaultError';
+import DefaultError from '../../components/DefaultFInderMsg';
+import PropTypes from 'prop-types';
 class FinderScreen extends Component {
   render() {
     const {cocktails, loading, error, navigation} = this.props;
@@ -28,31 +29,34 @@ class FinderScreen extends Component {
             handleOnChangeText={text => this.getData(text)}
           />
           <StatusBar backgroundColor="black" barStyle="light-content" />
-          <ProgressBarAndroid styleAttr="Horizontal" indeterminate={loading} />
           {loading ? (
-            <Skeleton loading={loading} />
-          ) : cocktails && cocktails.length > 0 && !error ? (
-            <DefaultFlatList data={cocktails} error={error ? true : false} />
-          ) : cocktails === null && !error ? (
-            <DefaultError
-              error="No se encontraron resultados"
-              iconName="search"
-              iconColor="white"
-            />
-          ) : cocktails && cocktails.length === 0 && error ? (
+            <>
+              <Skeleton loading={loading} />
+              <Skeleton loading={loading} />
+              <Skeleton loading={loading} />
+            </>
+          ) : error === 'Request Timeout' ? (
             <DefaultError
               error="Error de conexion!"
               iconName="search"
               iconColor="white"
             />
-          ) : cocktails.length === 0 && !error ? (
+          ) : error ? (
+            <DefaultError error={error} iconName="search" iconColor="white" />
+          ) : cocktails == null ? (
+            <DefaultError
+              error="No se encontraron resultados"
+              iconName="search"
+              iconColor="white"
+            />
+          ) : !cocktails.length ? (
             <DefaultError
               error="Comience la busqueda!"
               iconName="search"
               iconColor="white"
             />
           ) : (
-            <DefaultError error="Error" iconName="search" iconColor="white" />
+            <DefaultFlatList data={cocktails} />
           )}
         </View>
       </View>
@@ -78,6 +82,13 @@ const mapDispatchToProps = dispatch =>
     },
     dispatch,
   );
+FinderScreen.propTypes = {
+  navigation: PropTypes.object,
+  cocktails: PropTypes.array,
+  loading: PropTypes.bool,
+  error: PropTypes.string,
+  getCocktailsConnected: PropTypes.func,
+};
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
