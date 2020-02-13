@@ -10,7 +10,17 @@ import Header from '../../components/header';
 import Skeleton from '../../components/Skeleton';
 import DefaultError from '../../components/DefaultFInderMsg';
 import PropTypes from 'prop-types';
+import {Field, reduxForm} from 'redux-form';
 class FinderScreen extends Component {
+  renderInput(props) {
+    return (
+      <DefaultTextInput
+        placeholder="Escribe para buscar"
+        handleOnChangeText={props.input.onChange}
+        value={props.input.value}
+      />
+    );
+  }
   render() {
     const {cocktails, loading, error, navigation} = this.props;
     return (
@@ -24,9 +34,10 @@ class FinderScreen extends Component {
           urlRight={() => navigation.navigate({routeName: 'Help'})}
         />
         <View style={styles.contentVIew}>
-          <DefaultTextInput
-            placeholder="Escribe para buscar"
-            handleOnChangeText={text => this.getData(text)}
+          <Field
+            component={this.renderInput}
+            name="search"
+            onChange={this.getData}
           />
           <StatusBar backgroundColor="black" barStyle="light-content" />
           {loading ? (
@@ -70,7 +81,8 @@ class FinderScreen extends Component {
   };
 }
 
-const mapStateToProps = ({cocktails}) => ({
+const mapStateToProps = ({cocktails, form}) => ({
+  search: form.search,
   cocktails: cocktails.cocktails,
   loading: cocktails.loading,
   error: cocktails.error,
@@ -89,7 +101,12 @@ FinderScreen.propTypes = {
   error: PropTypes.string,
   getCocktailsConnected: PropTypes.func,
 };
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(FinderScreen);
+)(
+  reduxForm({
+    form: 'search',
+  })(FinderScreen),
+);
