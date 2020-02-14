@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
 import {View, Text, ImageBackground, StatusBar} from 'react-native';
-import {TouchableOpacity} from 'react-native-gesture-handler';
 import styles from './style';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import {HomeBackground} from '../../assets';
+import {DefaultButton} from '../../components';
 class HomeScreen extends Component {
   render() {
     const {navigation} = this.props;
@@ -12,14 +11,12 @@ class HomeScreen extends Component {
         <StatusBar backgroundColor="black" />
         <View style={styles.view}>
           <Text style={styles.title}>Cocktail Finder</Text>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => navigation.navigate({routeName: 'Finder'})}>
-            <Text style={styles.text}>
-              <Icon name="search" size={20} />
-              Ir al Buscador
-            </Text>
-          </TouchableOpacity>
+          <DefaultButton
+            iconName="search"
+            text="Ir al Buscador"
+            navigation={navigation}
+            url="Finder"
+          />
         </View>
       </ImageBackground>
     );

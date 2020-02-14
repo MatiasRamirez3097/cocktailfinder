@@ -1,16 +1,25 @@
+//REACT
 import React, {Component} from 'react';
 import {View, StatusBar, Platform} from 'react-native';
-import styles from './style';
+
+//REDUX
+
 import {connect} from 'react-redux';
-import DefaultTextInput from '../../components/DefaultTextInput';
-import {getCocktailsAction} from '../../store/actions/CocktailActions';
-import {bindActionCreators} from 'redux';
-import DefaultFlatList from '../../components/DefaultFlatList';
-import Header from '../../components/header';
-import Skeleton from '../../components/Skeleton';
-import DefaultMsg from '../../components/DefaultMsg';
-import PropTypes from 'prop-types';
 import {Field, reduxForm} from 'redux-form';
+import {bindActionCreators} from 'redux';
+import styles from './style';
+
+//COMPONENTS
+import {
+  DefaultFlatList,
+  DefaultMsg,
+  DefaultTextInput,
+  Header,
+  Skeleton,
+} from '../../components';
+import {getCocktailsAction} from '../../store/actions/CocktailActions';
+
+import PropTypes from 'prop-types';
 class FinderScreen extends Component {
   state = {
     search: '',
@@ -36,7 +45,6 @@ class FinderScreen extends Component {
           buttonRight="question"
           iconColor={Platform.OS === 'android' ? 'white' : 'black'}
           urlLeft={() => navigation.navigate({routeName: 'Home'})}
-          urlRight={() => navigation.navigate({routeName: 'Help'})}
         />
         <View style={styles.contentVIew}>
           <Field
