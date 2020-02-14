@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import {Platform, StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   centerHeader: {
@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
   leftHeader: {
     height: '100%',
     width: '20%',
-    backgroundColor: 'black',
+    backgroundColor: Platform.OS === 'android' ? '#000' : '#FFF',
     alignItems: 'flex-start',
     justifyContent: 'center',
     paddingLeft: 10,
@@ -20,14 +20,14 @@ const styles = StyleSheet.create({
   rightHeader: {
     height: '100%',
     width: '20%',
-    backgroundColor: 'black',
+    backgroundColor: Platform.OS === 'android' ? '#000' : '#FFF',
     alignItems: 'flex-end',
     justifyContent: 'center',
     paddingRight: 10,
     alignSelf: 'flex-end',
   },
   text: {
-    color: 'white',
+    color: Platform.OS === 'android' ? '#FFF' : '#000',
     fontSize: 20,
     alignSelf: 'center',
   },

@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import {Platform, StyleSheet} from 'react-native';
 const styles = StyleSheet.create({
   text: {
     flex: 1,
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     height: '96%',
     width: '100%',
     borderRadius: 10,
-    backgroundColor: '#000',
+    backgroundColor: Platform.OS === 'android' ? '#000' : '#FFF',
     justifyContent: 'center',
   },
   image: {

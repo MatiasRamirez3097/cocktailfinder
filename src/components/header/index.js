@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Text, View} from 'react-native';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import {Platform, TouchableOpacity} from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from './style';
 import PropTypes from 'prop-types';
@@ -12,7 +12,7 @@ class Header extends Component {
         <View style={styles.leftHeader}>
           {urlLeft && buttonLeft && (
             <TouchableOpacity onPress={urlLeft}>
-              <Icon name={buttonLeft} size={30} color="white" />
+              <Icon name={buttonLeft} size={30} color={this.iconColor} />
             </TouchableOpacity>
           )}
         </View>
@@ -22,13 +22,14 @@ class Header extends Component {
         <View style={styles.rightHeader}>
           {urlRight && buttonRight && (
             <TouchableOpacity onPress={urlRight}>
-              <Icon name={buttonRight} size={30} color="white" />
+              <Icon name={buttonRight} size={30} color={this.iconColor} />
             </TouchableOpacity>
           )}
         </View>
       </View>
     );
   }
+  iconColor = () => (Platform.OS === 'android' ? '#000' : '#FFF');
 }
 Header.propTypes = {
   buttonLeft: PropTypes.string,

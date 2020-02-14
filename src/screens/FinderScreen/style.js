@@ -1,16 +1,12 @@
-import {StyleSheet} from 'react-native';
+import {Platform, StyleSheet} from 'react-native';
 const styles = StyleSheet.create({
   contentVIew: {
     width: '100%',
     height: '90%',
-    backgroundColor: 'black',
-  },
-  headerTouchableOpacity: {
-    color: 'white',
-    paddingLeft: 10,
+    backgroundColor: Platform.OS === 'android' ? '#000' : '#FFF',
   },
   view: {
-    backgroundColor: '#000',
+    backgroundColor: Platform.OS === 'android' ? '#000' : '#FFF',
     height: '100%',
     alignContent: 'center',
     justifyContent: 'center',
@@ -35,7 +31,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 30,
-    color: '#FFF',
+    color: Platform.OS === 'android' ? '#FFF' : '#000',
     alignSelf: 'center',
     opacity: 1,
   },

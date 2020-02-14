@@ -10,6 +10,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     alignContent: 'center',
     justifyContent: 'center',
+    textAlign: 'center',
     fontSize: 20,
   },
 });
