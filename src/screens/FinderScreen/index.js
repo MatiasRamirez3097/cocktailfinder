@@ -1,6 +1,6 @@
 //REACT
 import React, {Component} from 'react';
-import {View, StatusBar, Platform} from 'react-native';
+import {View, StatusBar, Platform, SafeAreaView} from 'react-native';
 
 //REDUX
 
@@ -37,7 +37,7 @@ class FinderScreen extends Component {
     const {cocktails, loading, error, navigation} = this.props;
     const {search} = this.state;
     return (
-      <View style={styles.view}>
+      <SafeAreaView style={styles.view}>
         <Header
           navigation={navigation}
           title="Cocktails Search"
@@ -87,7 +87,7 @@ class FinderScreen extends Component {
             <DefaultFlatList data={cocktails} />
           )}
         </View>
-      </View>
+      </SafeAreaView>
     );
   }
   onChange = text => {

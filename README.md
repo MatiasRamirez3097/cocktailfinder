@@ -9,12 +9,13 @@ Run `yarn` inside proyect folder.
 - `cd ios`
 - `pod install`
 
-## For excecute
+## Launch Android
 
-- Android:
-  - `react-native run-android`
-- IOS:
-  - `react-native run-ios`
+`react-native run-android`
+
+## Launch iOS
+
+`react-native run-ios`
 
 ## VSCode Extensions
 
@@ -25,10 +26,10 @@ Run `yarn` inside proyect folder.
 ## Libraries used
 
 - React Native v0.61.5
-- React Native Dotenv
+- React Native Dotenv v0.2.0
 - React Native Skeleton Content Nonexpo v1.0.4
-- React Native Vector Icons
+- React Native Vector Icons v6.6.0
 - React Navigation v4.1
-- Redux
-- Redux Form
-- Redux Thunk
+- Redux v4.0.5
+- Redux Form v8.3.0
+- Redux Thunk v2.3.0
