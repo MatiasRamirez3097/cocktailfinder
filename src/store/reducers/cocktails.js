@@ -25,7 +25,6 @@ const cocktailsReducer = (state = initialState, action) => {
         loading: false,
       };
     case GET_COCKTAILS_ERROR:
-      console.log(action.error);
       return {
         ...state,
         cocktails: [],

@@ -3,9 +3,9 @@ import {Text, View} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from './style';
 import PropTypes from 'prop-types';
-class DefaultFinderMsg extends Component {
+class DefaultMsg extends Component {
   render() {
-    const {error, iconName, iconColor} = this.props;
+    const {msg, iconName, iconColor} = this.props;
     return (
       <View style={styles.view}>
         <Icon
@@ -14,14 +14,14 @@ class DefaultFinderMsg extends Component {
           size={100}
           style={styles.icon}
         />
-        <Text style={styles.text}>{error}</Text>
+        <Text style={styles.text}>{msg}</Text>
       </View>
     );
   }
 }
-DefaultFinderMsg.propTypes = {
-  error: PropTypes.string,
+DefaultMsg.propTypes = {
+  msg: PropTypes.string,
   iconColor: PropTypes.string.isRequired,
   iconName: PropTypes.string.isRequired,
 };
-export default DefaultFinderMsg;
+export default DefaultMsg;

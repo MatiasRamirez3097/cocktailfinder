@@ -1,18 +1,25 @@
 import React, {Component} from 'react';
 import {Text, View} from 'react-native';
-import {Platform, TouchableOpacity} from 'react-native-gesture-handler';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from './style';
 import PropTypes from 'prop-types';
 class Header extends Component {
   render() {
-    const {buttonLeft, buttonRight, urlLeft, urlRight, title} = this.props;
+    const {
+      buttonLeft,
+      buttonRight,
+      iconColor,
+      urlLeft,
+      urlRight,
+      title,
+    } = this.props;
     return (
       <View style={styles.view}>
         <View style={styles.leftHeader}>
           {urlLeft && buttonLeft && (
             <TouchableOpacity onPress={urlLeft}>
-              <Icon name={buttonLeft} size={30} color={this.iconColor} />
+              <Icon name={buttonLeft} size={30} color={iconColor} />
             </TouchableOpacity>
           )}
         </View>
@@ -22,18 +29,18 @@ class Header extends Component {
         <View style={styles.rightHeader}>
           {urlRight && buttonRight && (
             <TouchableOpacity onPress={urlRight}>
-              <Icon name={buttonRight} size={30} color={this.iconColor} />
+              <Icon name={buttonRight} size={30} color={iconColor} />
             </TouchableOpacity>
           )}
         </View>
       </View>
     );
   }
-  iconColor = () => (Platform.OS === 'android' ? '#000' : '#FFF');
 }
 Header.propTypes = {
   buttonLeft: PropTypes.string,
   buttonRight: PropTypes.string,
+  iconColor: PropTypes.string,
   title: PropTypes.string,
   urlLeft: PropTypes.func,
   urlRight: PropTypes.func,

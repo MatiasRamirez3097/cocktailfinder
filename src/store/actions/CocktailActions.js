@@ -13,7 +13,7 @@ export function getCocktailsAction(text) {
       const response = await CocktailsService.getDrinks(text);
       dispatch({type: GET_COCKTAILS_SUCCESS, payload: response.drinks});
     } catch (err) {
-      dispatch({type: GET_COCKTAILS_ERROR, error: 'Oops!'});
+      dispatch({type: GET_COCKTAILS_ERROR, error: 'Oops! ' + err});
     }
   };
 }

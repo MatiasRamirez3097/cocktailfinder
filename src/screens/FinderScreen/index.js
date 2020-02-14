@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, StatusBar} from 'react-native';
+import {View, StatusBar, Platform} from 'react-native';
 import styles from './style';
 import {connect} from 'react-redux';
 import DefaultTextInput from '../../components/DefaultTextInput';
@@ -8,7 +8,7 @@ import {bindActionCreators} from 'redux';
 import DefaultFlatList from '../../components/DefaultFlatList';
 import Header from '../../components/header';
 import Skeleton from '../../components/Skeleton';
-import DefaultFinderMsg from '../../components/DefaultFinderMsg';
+import DefaultMsg from '../../components/DefaultMsg';
 import PropTypes from 'prop-types';
 import {Field, reduxForm} from 'redux-form';
 class FinderScreen extends Component {
@@ -16,7 +16,6 @@ class FinderScreen extends Component {
     search: '',
   };
   renderInput(props) {
-    console.log(props);
     return (
       <DefaultTextInput
         placeholder="Escribe para buscar"
@@ -35,6 +34,7 @@ class FinderScreen extends Component {
           title="Cocktails Search"
           buttonLeft="arrow-left"
           buttonRight="question"
+          iconColor={Platform.OS === 'android' ? 'white' : 'black'}
           urlLeft={() => navigation.navigate({routeName: 'Home'})}
           urlRight={() => navigation.navigate({routeName: 'Help'})}
         />
@@ -54,20 +54,16 @@ class FinderScreen extends Component {
               <Skeleton loading={loading} />
             </>
           ) : error ? (
-            <DefaultFinderMsg
-              error={error}
-              iconName="search"
-              iconColor="white"
-            />
+            <DefaultMsg msg={error} iconName="search" iconColor="white" />
           ) : cocktails == null ? (
-            <DefaultFinderMsg
-              error="No se encontraron resultados"
+            <DefaultMsg
+              msg="No se encontraron resultados"
               iconName="search"
               iconColor="white"
             />
           ) : !cocktails.length ? (
-            <DefaultFinderMsg
-              error="Comience la busqueda!"
+            <DefaultMsg
+              msg="Comience la busqueda!"
               iconName="search"
               iconColor="white"
             />
