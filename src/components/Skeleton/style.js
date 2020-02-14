@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     //flex: 1,
     //flexWrap: 'wrap',
-    marginVertical: 10,
+    marginVertical: 7,
     flexDirection: 'row',
     //alignSelf: 'center',
     //alignItems: 'baseline',

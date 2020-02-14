@@ -2,7 +2,7 @@ import {Platform, StyleSheet} from 'react-native';
 const styles = StyleSheet.create({
   contentVIew: {
     width: '100%',
-    height: '90%',
+    height: '92%',
     backgroundColor: Platform.OS === 'android' ? '#000' : '#FFF',
   },
   view: {
@@ -10,24 +10,6 @@ const styles = StyleSheet.create({
     height: '100%',
     alignContent: 'center',
     justifyContent: 'center',
-  },
-  textInput: {
-    width: '80%',
-    borderColor: 'blue',
-    backgroundColor: '#FFF',
-    borderRadius: 5,
-    alignSelf: 'flex-start',
-    top: 0,
-  },
-  button: {
-    width: '80%',
-    alignSelf: 'center',
-    backgroundColor: '#00F',
-    borderRadius: 10,
-    borderColor: '#FFF',
-    borderWidth: 0.5,
-    padding: 10,
-    opacity: 1,
   },
   text: {
     fontSize: 30,

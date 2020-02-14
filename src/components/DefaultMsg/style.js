@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import {Platform, StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   view: {
@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
   },
   text: {
     alignSelf: 'center',
-    color: 'white',
+    color: Platform.OS === 'android' ? 'white' : 'black',
     fontSize: 20,
   },
 });

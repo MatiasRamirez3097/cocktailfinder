@@ -60,20 +60,28 @@ class FinderScreen extends Component {
               <Skeleton loading={loading} />
               <Skeleton loading={loading} />
               <Skeleton loading={loading} />
+              <Skeleton loading={loading} />
+              <Skeleton loading={loading} />
+              <Skeleton loading={loading} />
+              <Skeleton loading={loading} />
             </>
           ) : error ? (
-            <DefaultMsg msg={error} iconName="search" iconColor="white" />
+            <DefaultMsg
+              msg={error}
+              iconName="search"
+              iconColor={Platform.OS === 'android' ? 'white' : 'black'}
+            />
           ) : cocktails == null ? (
             <DefaultMsg
               msg="No se encontraron resultados"
               iconName="search"
-              iconColor="white"
+              iconColor={Platform.OS === 'android' ? 'white' : 'black'}
             />
           ) : !cocktails.length ? (
             <DefaultMsg
               msg="Comience la busqueda!"
               iconName="search"
-              iconColor="white"
+              iconColor={Platform.OS === 'android' ? 'white' : 'black'}
             />
           ) : (
             <DefaultFlatList data={cocktails} />

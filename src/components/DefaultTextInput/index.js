@@ -7,14 +7,12 @@ class DefaultTextInput extends Component {
     const {onChangeText, placeholder, value} = this.props;
     console.log('esta en el input', value);
     return (
-      <View>
-        <TextInput
-          style={styles.textInput}
-          onChangeText={onChangeText}
-          placeholder={placeholder}
-          value={value}
-        />
-      </View>
+      <TextInput
+        style={styles.textInput}
+        onChangeText={onChangeText}
+        placeholder={placeholder}
+        value={value}
+      />
     );
   }
 }
