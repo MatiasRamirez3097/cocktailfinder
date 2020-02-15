@@ -4,9 +4,9 @@
 
 Run `yarn` inside proyect folder.
 
-## For IOS (only work on MAC device) you need to run
+## For iOS (only work on MAC device) you need to run
 
-- `cd ios`
+- `cd iOS`
 - `pod install`
 
 ## Launch Android
@@ -33,3 +33,9 @@ Run `yarn` inside proyect folder.
 - Redux v4.0.5
 - Redux Form v8.3.0
 - Redux Thunk v2.3.0
+
+## How the list can be more performant?
+
+- Working whit pagination (server or client side, more performance on server).
+- Reducing rendered items.
+- Increasing the number of chars to start the search.
