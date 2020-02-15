@@ -1,6 +1,7 @@
 # Cocktail finder | NextDots Challengue | RN 0.61.5
 
-<img src=https://github.com/MatiasRamirez3097/cocktailfinder/blob/7d2db37b8bf0a80d70514121b8b53d5ba319702b/src/assets/images/homescreen.PNG" width="30%" title="Home Screen"/> <img src="https://github.com/MatiasRamirez3097/cocktailfinder/blob/7d2db37b8bf0a80d70514121b8b53d5ba319702b/src/assets/images/finderscreen.PNG" width="30%" title="Finder Screen"/>
+![Image of Home Screen](https://github.com/MatiasRamirez3097/cocktailfinder/blob/7d2db37b8bf0a80d70514121b8b53d5ba319702b/src/assets/images/homescreen.PNG)
+[Image of Finder Screen](https://github.com/MatiasRamirez3097/cocktailfinder/blob/7d2db37b8bf0a80d70514121b8b53d5ba319702b/src/assets/images/finderscreen.PNG)
 
 ## Getting started
 
