@@ -68,13 +68,13 @@ class FinderScreen extends Component {
           ) : error ? (
             <DefaultMsg
               msg={error}
-              iconName="search"
+              iconName="remove"
               iconColor={Platform.OS === 'android' ? 'white' : 'black'}
             />
           ) : cocktails == null ? (
             <DefaultMsg
               msg="No se encontraron resultados"
-              iconName="search"
+              iconName="frown-o"
               iconColor={Platform.OS === 'android' ? 'white' : 'black'}
             />
           ) : !cocktails.length ? (
