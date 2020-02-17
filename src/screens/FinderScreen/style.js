@@ -1,9 +1,10 @@
-import {Platform, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
+import {colorByOS} from '../../theme/palette';
 const styles = StyleSheet.create({
   contentVIew: {
     width: '100%',
     height: '92%',
-    backgroundColor: Platform.OS === 'android' ? '#000' : '#FFF',
+    backgroundColor: colorByOS('white', 'black'),
   },
   searchView: {
     flexDirection: 'row',
@@ -11,14 +12,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   view: {
-    backgroundColor: Platform.OS === 'android' ? '#000' : '#FFF',
+    backgroundColor: colorByOS('white', 'black'),
     height: '100%',
     alignContent: 'center',
     justifyContent: 'center',
   },
   text: {
     fontSize: 30,
-    color: Platform.OS === 'android' ? '#FFF' : '#000',
+    color: colorByOS('black', 'white'),
     alignSelf: 'center',
     opacity: 1,
   },

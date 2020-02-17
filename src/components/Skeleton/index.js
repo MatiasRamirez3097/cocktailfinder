@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import SkeletonContent from 'react-native-skeleton-content-nonexpo';
 import styles from './style';
+import {colors} from '../../theme/palette';
 import PropTypes from 'prop-types';
 class Skeleton extends Component {
   render() {
@@ -8,7 +9,7 @@ class Skeleton extends Component {
     return (
       <SkeletonContent
         containerStyle={styles.container}
-        boneColor="#444"
+        boneColor={colors.defaultBoneColor}
         animationType="shiver"
         animationDirection="diagonalDownRight"
         isLoading={loading}

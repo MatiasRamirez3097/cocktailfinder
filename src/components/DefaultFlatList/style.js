@@ -1,4 +1,5 @@
-import {Platform, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
+import {colorByOS} from '../../theme/palette';
 const styles = StyleSheet.create({
   text: {
     flex: 1,
@@ -24,7 +25,7 @@ const styles = StyleSheet.create({
     height: '80%',
     width: '100%',
     borderRadius: 10,
-    backgroundColor: Platform.OS === 'ios' ? '#FFF' : '#000',
+    backgroundColor: colorByOS('white', 'black'),
     justifyContent: 'center',
   },
   image: {

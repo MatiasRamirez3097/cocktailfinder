@@ -1,5 +1,5 @@
-import {Platform, StyleSheet} from 'react-native';
-
+import {StyleSheet} from 'react-native';
+import {colorByOS} from '../../theme/palette';
 const styles = StyleSheet.create({
   view: {
     paddingTop: '5%',
@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
   },
   text: {
     alignSelf: 'center',
-    color: Platform.OS === 'android' ? 'white' : 'black',
+    color: colorByOS('black', 'white'),
     fontSize: 20,
   },
 });

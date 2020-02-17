@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
     height: 50,
     borderColor: 'blue',
     borderWidth: 2,
-    backgroundColor: '#FFF',
+    backgroundColor: 'white',
     borderRadius: 90,
     alignSelf: 'center',
     alignContent: 'center',

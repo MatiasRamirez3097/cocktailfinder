@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-
+import {colors} from '../../theme/palette';
 const styles = StyleSheet.create({
   imageBackground: {
     width: '100%',
@@ -7,14 +7,14 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 30,
-    color: '#FFF',
+    color: 'white',
     alignSelf: 'center',
     opacity: 1,
   },
   view: {
     height: '100%',
     width: '100%',
-    backgroundColor: 'rgba(0,0,0,0.5)',
+    backgroundColor: colors.defaultHomeScreenBackground,
     alignItems: 'center',
     justifyContent: 'center',
   },

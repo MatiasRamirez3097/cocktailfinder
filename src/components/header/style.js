@@ -1,5 +1,5 @@
-import {Platform, StyleSheet} from 'react-native';
-
+import {StyleSheet} from 'react-native';
+import {colorByOS} from '../../theme/palette';
 const styles = StyleSheet.create({
   centerHeader: {
     height: '100%',
@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
   leftHeader: {
     height: '100%',
     width: '20%',
-    backgroundColor: Platform.OS === 'ios' ? '#FFF' : '#000',
+    backgroundColor: colorByOS('white', 'black'),
     alignItems: 'flex-start',
     justifyContent: 'center',
     paddingLeft: 10,
@@ -20,14 +20,14 @@ const styles = StyleSheet.create({
   rightHeader: {
     height: '100%',
     width: '20%',
-    backgroundColor: Platform.OS === 'ios' ? '#FFF' : '#000',
+    backgroundColor: colorByOS('white', 'black'),
     alignItems: 'flex-end',
     justifyContent: 'center',
     paddingRight: 10,
     alignSelf: 'flex-end',
   },
   text: {
-    color: Platform.OS === 'ios' ? '#000' : '#FFF',
+    color: colorByOS('black', 'white'),
     fontSize: 20,
     alignSelf: 'center',
   },
