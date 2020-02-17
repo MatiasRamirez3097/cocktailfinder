@@ -6,13 +6,13 @@ import styles from './style';
 import PropTypes from 'prop-types';
 class DefaultButton extends Component {
   render() {
-    const {iconName, navigation, text, url} = this.props;
+    const {iconName, navigation, iconSize, text, url} = this.props;
     return (
       <TouchableOpacity
         style={styles.button}
         onPress={() => navigation.navigate({routeName: url})}>
         <Text style={styles.text}>
-          <Icon name={iconName} size={20} />
+          <Icon name={iconName} size={iconSize} />
           {text}
         </Text>
       </TouchableOpacity>

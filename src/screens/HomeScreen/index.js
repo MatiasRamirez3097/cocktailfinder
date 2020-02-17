@@ -12,6 +12,7 @@ class HomeScreen extends Component {
         <View style={styles.view}>
           <Text style={styles.title}>Cocktail Finder</Text>
           <DefaultButton
+            iconSize={20}
             iconName="search"
             text="Ir al Buscador"
             navigation={navigation}
