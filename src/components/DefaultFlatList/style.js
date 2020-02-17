@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     height: '80%',
     width: '100%',
     borderRadius: 10,
-    backgroundColor: Platform.OS === 'android' ? '#000' : '#FFF',
+    backgroundColor: Platform.OS === 'ios' ? '#FFF' : '#000',
     justifyContent: 'center',
   },
   image: {

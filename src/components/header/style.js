@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
   leftHeader: {
     height: '100%',
     width: '20%',
-    backgroundColor: Platform.OS === 'android' ? '#000' : '#FFF',
+    backgroundColor: Platform.OS === 'ios' ? '#FFF' : '#000',
     alignItems: 'flex-start',
     justifyContent: 'center',
     paddingLeft: 10,
@@ -20,14 +20,14 @@ const styles = StyleSheet.create({
   rightHeader: {
     height: '100%',
     width: '20%',
-    backgroundColor: Platform.OS === 'android' ? '#000' : '#FFF',
+    backgroundColor: Platform.OS === 'ios' ? '#FFF' : '#000',
     alignItems: 'flex-end',
     justifyContent: 'center',
     paddingRight: 10,
     alignSelf: 'flex-end',
   },
   text: {
-    color: Platform.OS === 'android' ? '#FFF' : '#000',
+    color: Platform.OS === 'ios' ? '#000' : '#FFF',
     fontSize: 20,
     alignSelf: 'center',
   },

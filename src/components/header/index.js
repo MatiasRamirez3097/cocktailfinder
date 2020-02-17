@@ -44,6 +44,6 @@ Header.propTypes = {
   title: PropTypes.string,
   urlLeft: PropTypes.func,
   urlRight: PropTypes.func,
-  navigation: PropTypes.object,
+  navigation: PropTypes.object.isRequired,
 };
 export default Header;

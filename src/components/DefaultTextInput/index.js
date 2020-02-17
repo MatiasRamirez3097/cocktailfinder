@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
-import {TextInput, View} from 'react-native';
+import {TextInput} from 'react-native';
 import PropTypes from 'prop-types';
 import styles from './style';
 class DefaultTextInput extends Component {
   render() {
     const {onChangeText, placeholder, value} = this.props;
-    console.log('esta en el input', value);
     return (
       <TextInput
         style={styles.textInput}
@@ -17,8 +16,8 @@ class DefaultTextInput extends Component {
   }
 }
 DefaultTextInput.propTypes = {
-  onChangeText: PropTypes.func,
+  onChangeText: PropTypes.func.isRequired,
   placeholder: PropTypes.string,
-  value: PropTypes.string,
+  value: PropTypes.string.isRequired,
 };
 export default DefaultTextInput;

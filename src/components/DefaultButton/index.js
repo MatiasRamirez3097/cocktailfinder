@@ -21,7 +21,7 @@ class DefaultButton extends Component {
 }
 DefaultButton.propTypes = {
   iconName: PropTypes.string,
-  navigation: PropTypes.object,
+  navigation: PropTypes.object.isRequired,
   text: PropTypes.string,
   url: PropTypes.string,
 };

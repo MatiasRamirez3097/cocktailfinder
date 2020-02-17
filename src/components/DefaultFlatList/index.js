@@ -22,7 +22,6 @@ class DefaultFlatList extends Component {
   }
 }
 DefaultFlatList.propTypes = {
-  data: PropTypes.array,
-  styles: PropTypes.object,
+  data: PropTypes.array.isRequired,
 };
 export default DefaultFlatList;

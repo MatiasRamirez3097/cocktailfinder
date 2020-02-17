@@ -32,6 +32,6 @@ class Skeleton extends Component {
   }
 }
 Skeleton.propTypes = {
-  loading: PropTypes.bool,
+  loading: PropTypes.bool.isRequired,
 };
 export default Skeleton;

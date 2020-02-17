@@ -20,7 +20,7 @@ class DefaultMsg extends Component {
   }
 }
 DefaultMsg.propTypes = {
-  msg: PropTypes.string,
+  msg: PropTypes.string.isRequired,
   iconColor: PropTypes.string.isRequired,
   iconName: PropTypes.string.isRequired,
 };

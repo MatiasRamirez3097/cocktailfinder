@@ -25,11 +25,12 @@ class FinderScreen extends Component {
     search: '',
   };
   renderInput(props) {
+    const {onChange, value} = props.input;
     return (
       <DefaultTextInput
         placeholder="Escribe para buscar"
-        onChangeText={props.input.onChange}
-        value={props.input.value}
+        onChangeText={onChange}
+        value={value}
       />
     );
   }
@@ -43,7 +44,7 @@ class FinderScreen extends Component {
           title="Cocktails Search"
           buttonLeft="arrow-left"
           buttonRight="question"
-          iconColor={Platform.OS === 'android' ? 'white' : 'black'}
+          iconColor={Platform.OS === 'ios' ? 'black' : 'white'}
           urlLeft={() => navigation.navigate({routeName: 'Home'})}
         />
         <View style={styles.contentVIew}>
@@ -69,19 +70,19 @@ class FinderScreen extends Component {
             <DefaultMsg
               msg={error}
               iconName="remove"
-              iconColor={Platform.OS === 'android' ? 'white' : 'black'}
+              iconColor={Platform.OS === 'ios' ? 'black' : 'white'}
             />
           ) : cocktails == null ? (
             <DefaultMsg
               msg="No se encontraron resultados"
               iconName="frown-o"
-              iconColor={Platform.OS === 'android' ? 'white' : 'black'}
+              iconColor={Platform.OS === 'ios' ? 'black' : 'white'}
             />
           ) : !cocktails.length ? (
             <DefaultMsg
               msg="Comience la busqueda!"
               iconName="search"
-              iconColor={Platform.OS === 'android' ? 'white' : 'black'}
+              iconColor={Platform.OS === 'ios' ? 'black' : 'white'}
             />
           ) : (
             <DefaultFlatList data={cocktails} />
