@@ -2,6 +2,7 @@ import {
   GET_COCKTAILS_REQUEST,
   GET_COCKTAILS_SUCCESS,
   GET_COCKTAILS_ERROR,
+  RESET_COCKTAILS,
 } from '../actions/types';
 
 const initialState = {
@@ -30,6 +31,13 @@ const cocktailsReducer = (state = initialState, action) => {
         cocktails: [],
         loading: false,
         error: action.error,
+      };
+    case RESET_COCKTAILS:
+      return {
+        ...state,
+        cocktails: [],
+        loading: false,
+        error: null,
       };
     default:
       return state;

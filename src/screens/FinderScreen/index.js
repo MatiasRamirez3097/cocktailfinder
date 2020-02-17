@@ -7,7 +7,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 //REDUX
 
 import {connect} from 'react-redux';
-import {Field, reduxForm, reset} from 'redux-form';
+import {Field, reduxForm} from 'redux-form';
 import {bindActionCreators} from 'redux';
 import styles from './style';
 
@@ -19,7 +19,10 @@ import {
   Header,
   Skeleton,
 } from '../../components';
-import {getCocktailsAction} from '../../store/actions/CocktailActions';
+import {
+  getCocktailsAction,
+  resetStateAction,
+} from '../../store/actions/CocktailActions';
 
 import PropTypes from 'prop-types';
 class FinderScreen extends Component {
@@ -39,6 +42,7 @@ class FinderScreen extends Component {
   render() {
     const {cocktails, loading, error, navigation} = this.props;
     const {search} = this.state;
+    console.log(this.props);
     return (
       <SafeAreaView style={styles.view}>
         <Header
@@ -50,12 +54,7 @@ class FinderScreen extends Component {
           urlLeft={() => navigation.navigate({routeName: 'Home'})}
         />
         <View style={styles.contentVIew}>
-          <View
-            style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}>
+          <View style={styles.searchView}>
             <Field
               component={this.renderInput}
               name="search"
@@ -71,7 +70,9 @@ class FinderScreen extends Component {
           </View>
           <StatusBar backgroundColor="black" barStyle="light-content" />
           {loading ? (
-            [1, 2, 3, 4, 5, 6, 7].map(key => <Skeleton loading={loading} />)
+            [1, 2, 3, 4, 5, 6, 7].map(key => (
+              <Skeleton loading={loading} key={key} />
+            ))
           ) : error ? (
             <DefaultMsg msg={error} iconName="remove" />
           ) : cocktails == null ? (
@@ -99,10 +100,10 @@ class FinderScreen extends Component {
       },
     );
   };
-  reset = async () => {
-    this.setState({
-      search: '',
-    });
+  reset = () => {
+    const {reset, resetCocktails} = this.props;
+    reset('search');
+    resetCocktails();
   };
 }
 
@@ -115,6 +116,7 @@ const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
       getCocktailsConnected: getCocktailsAction,
+      resetCocktails: resetStateAction,
     },
     dispatch,
   );

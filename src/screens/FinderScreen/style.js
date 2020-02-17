@@ -5,6 +5,11 @@ const styles = StyleSheet.create({
     height: '92%',
     backgroundColor: Platform.OS === 'android' ? '#000' : '#FFF',
   },
+  searchView: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   view: {
     backgroundColor: Platform.OS === 'android' ? '#000' : '#FFF',
     height: '100%',

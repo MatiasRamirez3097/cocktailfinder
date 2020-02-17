@@ -2,9 +2,14 @@ import {
   GET_COCKTAILS_REQUEST,
   GET_COCKTAILS_SUCCESS,
   GET_COCKTAILS_ERROR,
+  RESET_COCKTAILS,
 } from './types';
 
 import CocktailsService from '../../provider/services/CocktailsService';
+
+export function resetStateAction() {
+  return {type: RESET_COCKTAILS};
+}
 
 export function getCocktailsAction(text) {
   return async dispatch => {
