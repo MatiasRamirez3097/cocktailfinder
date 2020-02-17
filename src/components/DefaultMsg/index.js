@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
-import {Text, View} from 'react-native';
+import {Platform, Text, View} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from './style';
 import PropTypes from 'prop-types';
 class DefaultMsg extends Component {
   render() {
-    const {msg, iconName, iconColor} = this.props;
+    const iconColor = Platform.OS === 'ios' ? 'black' : 'white';
+    const {msg, iconName} = this.props;
     return (
       <View style={styles.view}>
         <Icon
@@ -21,7 +22,6 @@ class DefaultMsg extends Component {
 }
 DefaultMsg.propTypes = {
   msg: PropTypes.string.isRequired,
-  iconColor: PropTypes.string.isRequired,
   iconName: PropTypes.string.isRequired,
 };
 export default DefaultMsg;

@@ -57,33 +57,13 @@ class FinderScreen extends Component {
           />
           <StatusBar backgroundColor="black" barStyle="light-content" />
           {loading ? (
-            <>
-              <Skeleton loading={loading} />
-              <Skeleton loading={loading} />
-              <Skeleton loading={loading} />
-              <Skeleton loading={loading} />
-              <Skeleton loading={loading} />
-              <Skeleton loading={loading} />
-              <Skeleton loading={loading} />
-            </>
+            [1, 2, 3, 4, 5, 6, 7].map(() => <Skeleton loading={loading} />)
           ) : error ? (
-            <DefaultMsg
-              msg={error}
-              iconName="remove"
-              iconColor={Platform.OS === 'ios' ? 'black' : 'white'}
-            />
+            <DefaultMsg msg={error} iconName="remove" />
           ) : cocktails == null ? (
-            <DefaultMsg
-              msg="No se encontraron resultados"
-              iconName="frown-o"
-              iconColor={Platform.OS === 'ios' ? 'black' : 'white'}
-            />
+            <DefaultMsg msg="No se encontraron resultados" iconName="frown-o" />
           ) : !cocktails.length ? (
-            <DefaultMsg
-              msg="Comience la busqueda!"
-              iconName="search"
-              iconColor={Platform.OS === 'ios' ? 'black' : 'white'}
-            />
+            <DefaultMsg msg="Comience la busqueda!" iconName="search" />
           ) : (
             <DefaultFlatList data={cocktails} />
           )}
