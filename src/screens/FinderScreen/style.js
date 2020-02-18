@@ -7,9 +7,10 @@ const styles = StyleSheet.create({
     backgroundColor: colorByOS('white', 'black'),
   },
   searchView: {
+    marginHorizontal: 10,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-around',
   },
   view: {
     backgroundColor: colorByOS('white', 'black'),

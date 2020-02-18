@@ -30,6 +30,7 @@ class FinderScreen extends Component {
   state = {
     search: '',
     disableReset: true,
+    userCancel: false,
   };
   renderInput(props) {
     const {onChange, value} = props.input;
@@ -81,15 +82,16 @@ class FinderScreen extends Component {
   }
   body(iconColor) {
     const {cocktails, loading, error} = this.props;
+    const {userCancel} = this.state;
     if (loading) {
       return [1, 2, 3, 4, 5, 6, 7].map(key => (
         <Skeleton loading={loading} key={key} />
       ));
     }
-    if (error) {
+    if (error && !userCancel) {
       return <DefaultMsg msg={error} iconName="remove" iconColor={iconColor} />;
     }
-    if (cocktails == null) {
+    if (cocktails === null) {
       return (
         <DefaultMsg
           msg="No se encontraron resultados"
@@ -98,7 +100,7 @@ class FinderScreen extends Component {
         />
       );
     }
-    if (!cocktails.length) {
+    if (!cocktails.length || userCancel) {
       return (
         <DefaultMsg
           msg="Comience la busqueda!"
@@ -121,6 +123,9 @@ class FinderScreen extends Component {
             disableReset: false,
           });
           if (search.length >= 3) {
+            this.setState({
+              userCancel: false,
+            });
             const {getCocktailsConnected} = this.props;
             await getCocktailsConnected(search);
           }
@@ -131,6 +136,7 @@ class FinderScreen extends Component {
   reset = () => {
     this.setState({
       disableReset: true,
+      userCancel: true,
     });
     const {reset, resetCocktails} = this.props;
     reset('search');
