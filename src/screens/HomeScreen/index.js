@@ -1,7 +1,12 @@
+//REACT
 import React, {Component} from 'react';
 import {View, Text, ImageBackground, StatusBar} from 'react-native';
+
+//STYLE
 import styles from './style';
 import {HomeBackground} from '../../assets';
+
+//COMPONENTS
 import {DefaultButton} from '../../components';
 class HomeScreen extends Component {
   render() {
@@ -15,8 +20,7 @@ class HomeScreen extends Component {
             iconSize={20}
             iconName="search"
             text="Ir al Buscador"
-            navigation={navigation}
-            url="Finder"
+            onPress={() => navigation.navigate({routeName: 'Finder'})}
           />
         </View>
       </ImageBackground>

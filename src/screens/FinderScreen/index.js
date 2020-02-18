@@ -1,6 +1,6 @@
 //REACT
 import React, {Component} from 'react';
-import {View, StatusBar, Text, Platform, SafeAreaView} from 'react-native';
+import {View, StatusBar, Text, SafeAreaView} from 'react-native';
 
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -10,7 +10,6 @@ import {connect} from 'react-redux';
 import {Field, reduxForm} from 'redux-form';
 import {bindActionCreators} from 'redux';
 import styles from './style';
-
 //COMPONENTS
 import {
   DefaultFlatList,
@@ -24,7 +23,10 @@ import {
   resetStateAction,
 } from '../../store/actions/CocktailActions';
 
+//PROPTYPES
 import PropTypes from 'prop-types';
+//THEME
+import {colorByOS} from '../../theme/palette';
 class FinderScreen extends Component {
   state = {
     search: '',
@@ -41,17 +43,16 @@ class FinderScreen extends Component {
   }
   render() {
     const {cocktails, loading, error, navigation} = this.props;
+    const iconColor = colorByOS('black', 'white');
     const {search} = this.state;
-    console.log(this.props);
     return (
       <SafeAreaView style={styles.view}>
         <Header
           navigation={navigation}
           title="Cocktails Search"
           buttonLeft="arrow-left"
-          buttonRight="question"
-          iconColor={Platform.OS === 'ios' ? 'black' : 'white'}
-          urlLeft={() => navigation.navigate({routeName: 'Home'})}
+          iconColor={iconColor}
+          actionLeft={() => navigation.navigate({routeName: 'Home'})}
         />
         <View style={styles.contentVIew}>
           <View style={styles.searchView}>
@@ -74,11 +75,19 @@ class FinderScreen extends Component {
               <Skeleton loading={loading} key={key} />
             ))
           ) : error ? (
-            <DefaultMsg msg={error} iconName="remove" />
+            <DefaultMsg msg={error} iconName="remove" iconColor={iconColor} />
           ) : cocktails == null ? (
-            <DefaultMsg msg="No se encontraron resultados" iconName="frown-o" />
+            <DefaultMsg
+              msg="No se encontraron resultados"
+              iconName="frown-o"
+              iconColor={iconColor}
+            />
           ) : !cocktails.length ? (
-            <DefaultMsg msg="Comience la busqueda!" iconName="search" />
+            <DefaultMsg
+              msg="Comience la busqueda!"
+              iconName="search"
+              iconColor={iconColor}
+            />
           ) : (
             <DefaultFlatList data={cocktails} />
           )}

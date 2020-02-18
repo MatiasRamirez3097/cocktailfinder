@@ -1,12 +1,11 @@
 import React, {Component} from 'react';
-import {Platform, Text, View} from 'react-native';
+import {Text, View} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from './style';
 import PropTypes from 'prop-types';
 class DefaultMsg extends Component {
   render() {
-    const iconColor = Platform.OS === 'ios' ? 'black' : 'white';
-    const {msg, iconName} = this.props;
+    const {msg, iconColor, iconName} = this.props;
     return (
       <View style={styles.view}>
         <Icon

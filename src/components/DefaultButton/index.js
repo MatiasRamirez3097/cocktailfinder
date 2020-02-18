@@ -6,11 +6,9 @@ import styles from './style';
 import PropTypes from 'prop-types';
 class DefaultButton extends Component {
   render() {
-    const {iconName, navigation, iconSize, text, url} = this.props;
+    const {iconName, iconSize, onPress, text} = this.props;
     return (
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate({routeName: url})}>
+      <TouchableOpacity style={styles.button} onPress={onPress}>
         <Text style={styles.text}>
           <Icon name={iconName} size={iconSize} />
           {text}
@@ -20,9 +18,9 @@ class DefaultButton extends Component {
   }
 }
 DefaultButton.propTypes = {
-  iconName: PropTypes.string,
-  navigation: PropTypes.object.isRequired,
+  iconName: PropTypes.string.isRequired,
+  iconSize: PropTypes.number.isRequired,
+  onPress: PropTypes.func,
   text: PropTypes.string,
-  url: PropTypes.string,
 };
 export default DefaultButton;

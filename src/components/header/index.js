@@ -10,15 +10,15 @@ class Header extends Component {
       buttonLeft,
       buttonRight,
       iconColor,
-      urlLeft,
-      urlRight,
+      actionLeft,
+      actionRight,
       title,
     } = this.props;
     return (
       <View style={styles.view}>
         <View style={styles.leftHeader}>
-          {urlLeft && buttonLeft && (
-            <TouchableOpacity onPress={urlLeft}>
+          {actionLeft && buttonLeft && (
+            <TouchableOpacity onPress={actionLeft}>
               <Icon name={buttonLeft} size={30} color={iconColor} />
             </TouchableOpacity>
           )}
@@ -27,8 +27,8 @@ class Header extends Component {
           <Text style={styles.text}>{title}</Text>
         </View>
         <View style={styles.rightHeader}>
-          {urlRight && buttonRight && (
-            <TouchableOpacity onPress={urlRight}>
+          {actionRight && buttonRight && (
+            <TouchableOpacity onPress={actionRight}>
               <Icon name={buttonRight} size={30} color={iconColor} />
             </TouchableOpacity>
           )}
@@ -41,9 +41,8 @@ Header.propTypes = {
   buttonLeft: PropTypes.string,
   buttonRight: PropTypes.string,
   iconColor: PropTypes.string,
-  title: PropTypes.string,
+  title: PropTypes.string.isRequired,
   urlLeft: PropTypes.func,
   urlRight: PropTypes.func,
-  navigation: PropTypes.object.isRequired,
 };
 export default Header;
