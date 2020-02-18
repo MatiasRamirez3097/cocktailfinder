@@ -4,3 +4,4 @@ export {default as Header} from './header';
 export {default as Skeleton} from './Skeleton';
 export {default as DefaultTextInput} from './DefaultTextInput';
 export {default as DefaultButton} from './DefaultButton';
+export {default as ClearButton} from './ClearButton';

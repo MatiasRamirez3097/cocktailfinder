@@ -8,6 +8,7 @@ import {HomeBackground} from '../../assets';
 
 //COMPONENTS
 import {DefaultButton} from '../../components';
+import PropTypes from 'prop-types';
 class HomeScreen extends Component {
   render() {
     const {navigation} = this.props;
@@ -27,4 +28,7 @@ class HomeScreen extends Component {
     );
   }
 }
+HomeScreen.propTypes = {
+  navigation: PropTypes.object.isRequired,
+};
 export default HomeScreen;
