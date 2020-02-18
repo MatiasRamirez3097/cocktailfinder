@@ -20,6 +20,6 @@ ClearButton.propTypes = {
   disabled: PropTypes.bool.isRequired,
   iconName: PropTypes.string.isRequired,
   iconSize: PropTypes.number.isRequired,
-  iconColor: PropTypes.string.isRequired,,
+  iconColor: PropTypes.string.isRequired,
 };
 export default ClearButton;
