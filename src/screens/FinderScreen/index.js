@@ -48,7 +48,6 @@ class FinderScreen extends Component {
     return (
       <SafeAreaView style={styles.view}>
         <Header
-          navigation={navigation}
           title="Cocktails Search"
           buttonLeft="arrow-left"
           iconColor={iconColor}
