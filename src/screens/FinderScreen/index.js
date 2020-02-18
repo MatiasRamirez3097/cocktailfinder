@@ -1,6 +1,6 @@
 //REACT
 import React, {Component} from 'react';
-import {View, StatusBar, SafeAreaView} from 'react-native';
+import {Keyboard, StatusBar, SafeAreaView, View} from 'react-native';
 
 //REDUX
 
@@ -135,6 +135,7 @@ class FinderScreen extends Component {
     const {reset, resetCocktails} = this.props;
     reset('search');
     resetCocktails();
+    Keyboard.dismiss();
   };
 }
 
